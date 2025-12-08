@@ -144,8 +144,8 @@ const hero = () => {
           </div>
           {/* Lets Connect*/}
           <div
-            className="backdrop-blur-md w-auto p-6
-          xl:ml-0
+            className="backdrop-blur-md w-auto p-6 mx-auto
+          xl:mx-auto
           lg:w-auto lg:p-8"
           >
             <motion.h1
