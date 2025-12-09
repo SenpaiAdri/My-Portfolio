@@ -4,6 +4,11 @@ import React from "react";
 import { Meteors } from "../ui/meteors";
 
 const hero = () => {
+  const transition = {
+    duration: 1.75,
+    delay: 0.5,
+    ease: "easeInOut" as const,
+  };
   return (
     <div
       className="relative w-full min-h-screen pt-20 pb-40 px-5 flex flex-col justify-between
@@ -26,9 +31,11 @@ const hero = () => {
               lg:block lg:w-auto lg:p-8
               xl:w-auto xl:p-8
               hover:bg-[#393A41] cursor-pointer
-              duration-300"
+              transition-colors duration-300"
+            initial={{ opacity: 0, y: -200 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={transition}
             whileHover={{ scale: 1.01 }}
-            whileTap={{ scale: 0.95 }}
           >
             <h1
               className="italic 
@@ -44,12 +51,14 @@ const hero = () => {
           <motion.div
             className="border border-[#6A6B70] rounded-3xl backdrop-blur-lg 
               w-full px-6 py-10 text-center 
-              lg:w-100 lg:p-8 lg:text-right 
+              lg:w-200 lg:p-8 lg:text-right 
               xl:w-auto xl:p-8 xl:text-right
               hover:bg-[#393A41] cursor-pointer
-              duration-300"
+              transition-colors duration-300"
+            initial={{ opacity: 0, x: 200 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={transition}
             whileHover={{ scale: 1.01 }}
-            whileTap={{ scale: 0.95 }}
           >
             <h1
               className="font-bold italic 
@@ -71,11 +80,14 @@ const hero = () => {
         </div>
       </div>
       {/* Center Content */}
-      <div
+      <motion.div
         className="bg-grey w-full flex flex-col items-center justify-center 
           flex-1 py-10
           lg:py-0
           xl:py-0"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={transition}
       >
         <h1
           className="font-bold text-center 
@@ -92,7 +104,7 @@ const hero = () => {
         >
           My Portfolio
         </h1>
-      </div>
+      </motion.div>
       {/* Bottom Right Content */}
       <div>
         <div
@@ -107,9 +119,11 @@ const hero = () => {
               lg:w-110 lg:p-8 lg:text-left
               xl:w-auto xl:p-8
               hover:bg-[#393A41] cursor-pointer
-              duration-300"
+              transition-colors duration-300"
+            initial={{ opacity: 0, x: -200 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={transition}
             whileHover={{ scale: 1.01 }}
-            whileTap={{ scale: 0.95 }}
           >
             <h1
               className="font-bold italic 
@@ -135,13 +149,15 @@ const hero = () => {
           {/* Skills */}
           <motion.div
             className="hidden border border-[#6A6B70] rounded-3xl backdrop-blur-lg 
-              w-full p-6 text-center 
-              lg:block lg:w-auto lg:p-8 lg:text-left
-              xl:w-auto xl:p-8 xl:text-left
-              hover:bg-[#393A41] cursor-pointer
-              duration-300"
+            w-full p-6 text-center 
+            lg:block lg:w-auto lg:p-8 lg:text-left
+            xl:w-auto xl:p-8 xl:text-left
+            hover:bg-[#393A41] cursor-pointer
+            transition-colors duration-300"
+            initial={{ opacity: 0, y: 200 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={transition}
             whileHover={{ scale: 1.01 }}
-            whileTap={{ scale: 0.95 }}
           >
             <h1
               className="italic mb-2 
@@ -167,10 +183,14 @@ const hero = () => {
           >
             <motion.h1
               className="text-xl pb-3 text-center whitespace-nowrap
-            lg:text-3xl lg:text-left lg:text-lg 
-            xl:text-2xl xl:text-left xl:pb-5
-            hover:text-gray-500 cursor-pointer"
-              whileHover={{ scale: 1.05 }}
+              lg:text-3xl lg:text-left lg:text-lg 
+              xl:text-2xl xl:text-left xl:pb-5
+              hover:text-gray-500 cursor-pointer
+              transition-colors duration-300"
+              initial={{ opacity: 0, x: 200 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={transition}
+              whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.95 }}
             >
               [ Let's Connect ]
