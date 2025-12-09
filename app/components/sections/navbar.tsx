@@ -1,7 +1,14 @@
+"use client";
 import Link from "next/link";
 import React from "react";
+import { motion } from "motion/react";
+
+const MotionLink = motion.create(Link);
 
 const Navbar = () => {
+  const NavBarButtons =
+    "flex bg-[#131316]/10 backdrop-blur-md rounded-full border-1 border-[#6A6B70] transition-all items-center justify-center hover:bg-[#26262C] duration-0 h-10 w-auto px-4 text-sm md:w-25 md:text-base";
+
   return (
     // navbar
     <div className="z-50 flex w-full p-4 fixed top-0 left-0 justify-center items-center">
@@ -13,34 +20,41 @@ const Navbar = () => {
           gap-2 pe-0 
           md:gap-5 md:pe-2"
       >
-        <div
-          className="flex bg-[#131316]/10 backdrop-blur-md rounded-full border-1 border-[#6A6B70] transition-all items-center justify-center hover:bg-[#26262C] duration-300 
-            h-10 w-auto px-4 text-sm 
-            md:w-25 md:text-base"
+        {/* <MotionLink
+          href=""
+          className={NavBarButtons}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
-          <Link href="/skills">Skills</Link>
-        </div>
-        <div
-          className="flex bg-[#131316]/10 backdrop-blur-md rounded-full border-1 border-[#6A6B70] transition-all items-center justify-center hover:bg-[#26262C] duration-300 
-            h-10 w-auto px-4 text-sm 
-            md:w-25 md:text-base"
+          Skills
+        </MotionLink> */}
+
+        <MotionLink
+          href=""
+          className={NavBarButtons}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
-          <Link href="/about">Projects</Link>
-        </div>
-        <div
-          className="flex bg-[#131316]/10 backdrop-blur-md rounded-full border-1 border-[#6A6B70] transition-all items-center justify-center hover:bg-[#26262C] duration-300 
-            h-10 w-auto px-4 text-sm 
-            md:w-25 md:text-base"
+          Projects
+        </MotionLink>
+
+        <MotionLink
+          href=""
+          className={NavBarButtons}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
-          <Link href="/about">About</Link>
-        </div>
-        <div
-          className="flex bg-[#131316]/10 backdrop-blur-md rounded-full border-1 border-[#6A6B70] transition-all items-center justify-center hover:bg-[#26262C] duration-300 
-            h-10 w-auto px-4 text-sm 
-            md:w-25 md:text-base"
+          About
+        </MotionLink>
+
+        <MotionLink
+          href=""
+          className={NavBarButtons}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
-          <Link href="/contact">Contact</Link>
-        </div>
+          Contact
+        </MotionLink>
       </div>
     </div>
   );
