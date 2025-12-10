@@ -1,23 +1,38 @@
 "use client";
-import { motion } from "motion/react";
-import React from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+import React, { useRef } from "react";
 import { Meteors } from "../ui/meteors";
 
 const hero = () => {
+  const containerRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  const xTop = useTransform(scrollYProgress, [0, 1], [0, 500]);
+  const yCenter = useTransform(scrollYProgress, [0, 1], [0, 300]);
+  const xBottom = useTransform(scrollYProgress, [0, 1], [0, -500]);
+  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+
   const transition = {
     duration: 1.75,
     delay: 0.5,
     ease: "easeInOut" as const,
   };
+
   return (
     <div
-      className="relative w-full min-h-screen pt-20 pb-40 px-5 flex flex-col justify-between
+      // Attach the ref here so useScroll knows which element to measure
+      ref={containerRef}
+      className="relative w-full min-h-screen pt-20 pb-40 px-5 flex flex-col justify-between overflow-hidden
       md:px-30
       lg:pb-0 lg:pt-0 lg:px-0
       xl:pb-0 xl:pt-0 xl:px-0"
     >
       {/* Top Right Content */}
-      <div>
+      <motion.div style={{ x: xTop, opacity }}>
         {/* Top Right Content Container */}
         <div
           className="flex flex-col items-center justify-center gap-5 px-4 mt-25
@@ -51,7 +66,7 @@ const hero = () => {
           <motion.div
             className="border border-[#6A6B70] rounded-3xl backdrop-blur-lg 
               w-full px-6 py-10 text-center 
-              lg:w-200 lg:p-8 lg:text-right 
+              lg:w-auto lg:p-8 lg:text-right 
               xl:w-auto xl:p-8 xl:text-right
               hover:bg-[#393A41] cursor-pointer
               transition-colors duration-300"
@@ -73,40 +88,47 @@ const hero = () => {
                 xl:text-2xl"
             >
               A Computer Science Student Major{" "}
-              <br className="hidden xl:block" />
+              <br className="hidden md:block" />
               In Mobile Programming
             </p>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
+
       {/* Center Content */}
       <motion.div
-        className="bg-grey w-full flex flex-col items-center justify-center 
-          flex-1 py-10
-          lg:py-0
-          xl:py-0"
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={transition}
+        style={{ y: yCenter, opacity }}
+        className="w-full flex-1 flex flex-col items-center justify-center"
       >
-        <h1
-          className="font-bold text-center 
-            text-4xl
-            lg:text-5xl
-            xl:text-7xl"
+        <motion.div
+          className="bg-grey w-full flex flex-col items-center justify-center 
+            py-10
+            lg:py-0
+            xl:py-0"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={transition}
         >
-          Welcome to
-        </h1>
-        <h1
-          className="text-center 
-            text-2xl 
-            xl:text-4xl"
-        >
-          My Portfolio
-        </h1>
+          <h1
+            className="font-bold text-center 
+              text-4xl
+              lg:text-5xl
+              xl:text-7xl"
+          >
+            Welcome to
+          </h1>
+          <h1
+            className="text-center 
+              text-2xl 
+              xl:text-4xl"
+          >
+            My Portfolio
+          </h1>
+        </motion.div>
       </motion.div>
+
       {/* Bottom Right Content */}
-      <div>
+      <motion.div style={{ x: xBottom, opacity }}>
         <div
           className="flex flex-col items-center justify-center gap-5 px-4 
           lg:flex-row lg:items-end lg:justify-start lg:gap-10 lg:mt-25 lg:mb-15 lg:px-10
@@ -197,7 +219,7 @@ const hero = () => {
             </motion.h1>
           </div>
         </div>
-      </div>
+      </motion.div>
       {/* Meteors */}
       <Meteors number={80} />
     </div>
