@@ -26,7 +26,7 @@ const Hero = () => {
     <div
       // Attach the ref here so useScroll knows which element to measure
       ref={containerRef}
-      className="relative w-full min-h-screen pt-20 pb-40 px-5 flex flex-col justify-between overflow-hidden
+      className="relative w-full min-h-screen pt-10 pb-0 px-5 flex flex-col justify-between overflow-hidden
       md:px-30
       lg:pb-0 lg:pt-0 lg:px-0
       xl:pb-0 xl:pt-0 xl:px-0"
@@ -35,8 +35,9 @@ const Hero = () => {
       <motion.div style={{ x: xTop, opacity }}>
         {/* Top Right Content Container */}
         <div
-          className="flex flex-col items-center justify-center gap-5 px-4 mt-25
-          lg:flex-row lg:items-start lg:justify-end lg:gap-10 lg:px-10
+          className="flex flex-col items-center justify-center gap-5 px-4 mt-20
+          md:mt-20
+          lg:flex-row lg:items-start lg:justify-end lg:gap-10 lg:px-10 lg:mt-30
           xl:flex-row xl:items-start xl:justify-end xl:gap-10 xl:px-10"
         >
           {/* Quote */}
@@ -77,14 +78,14 @@ const Hero = () => {
           >
             <h1
               className="font-bold italic 
-                text-3xl pb-3 
+                text-2xl pb-3 
                 xl:text-5xl xl:pb-5"
             >
               I&apos;m Adrian M. De Guzman
             </h1>
             <p
               className="text-gray-200 italic 
-                text-xl 
+                text-base 
                 xl:text-2xl"
             >
               A Computer Science Student Major{" "}
@@ -130,7 +131,7 @@ const Hero = () => {
       {/* Bottom Right Content */}
       <motion.div style={{ x: xBottom, opacity }}>
         <div
-          className="flex flex-col items-center justify-center gap-5 px-4 
+          className="flex flex-col items-center justify-center gap-10 px-4 
           lg:flex-row lg:items-end lg:justify-start lg:gap-10 lg:mt-25 lg:mb-15 lg:px-10
           xl:flex-row xl:items-end xl:justify-start xl:gap-10 xl:mt-25 xl:mb-15 xl:px-10"
         >
@@ -149,7 +150,7 @@ const Hero = () => {
           >
             <h1
               className="font-bold italic 
-                text-3xl text-center pb-3
+                text-2xl text-center pb-3
                 lg:text-3xl lg:text-left lg:pb-5
                 xl:text-5xl xl:text-left xl:pb-5"
             >
@@ -159,7 +160,7 @@ const Hero = () => {
             </h1>
             <p
               className="text-gray-200 italic 
-                text-xl text-center 
+                text-base text-center 
                 lg:text-xl lg:text-left
                 xl:text-2xl xl:text-left"
             >
@@ -204,7 +205,7 @@ const Hero = () => {
           lg:w-auto lg:p-8"
           >
             <motion.h1
-              className="text-xl pb-3 text-center whitespace-nowrap
+              className="text-xl pb-20 text-center whitespace-nowrap
               lg:text-3xl lg:text-left lg:text-lg 
               xl:text-2xl xl:text-left xl:pb-5
               hover:text-gray-500 cursor-pointer
