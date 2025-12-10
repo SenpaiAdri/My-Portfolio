@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import React, { useRef } from "react";
 import { Meteors } from "../ui/meteors";
 
-const hero = () => {
+const Hero = () => {
   const containerRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -58,8 +58,8 @@ const hero = () => {
                 lg:text-xl lg:text-right
                 xl:text-2xl xl:text-right"
             >
-              "Building Practical Solutions for a<br />
-              Better Future"
+              &quot;Building Practical Solutions for a<br />
+              Better Future&quot;
             </h1>
           </motion.div>
           {/* Name and Description */}
@@ -80,7 +80,7 @@ const hero = () => {
                 text-3xl pb-3 
                 xl:text-5xl xl:pb-5"
             >
-              I'm Adrian M. De Guzman
+              I&apos;m Adrian M. De Guzman
             </h1>
             <p
               className="text-gray-200 italic 
@@ -215,7 +215,7 @@ const hero = () => {
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.95 }}
             >
-              [ Let's Connect ]
+              [ Let&apos;s Connect ]
             </motion.h1>
           </div>
         </div>
@@ -226,4 +226,4 @@ const hero = () => {
   );
 };
 
-export default hero;
+export default Hero;

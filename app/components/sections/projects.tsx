@@ -1,9 +1,7 @@
 "use client";
-import { motion, useScroll, useTransform } from "motion/react";
-import React, { useRef } from "react";
-import { Meteors } from "../ui/meteors";
+import React from "react";
 
-const projects = () => {
+const Projects = () => {
   return (
     <div
       className="bg-black relative w-full min-h-screen pt-20 pb-40 px-5 flex flex-col justify-between overflow-hidden
@@ -16,4 +14,4 @@ const projects = () => {
   );
 };
 
-export default projects;
+export default Projects;
