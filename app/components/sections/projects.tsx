@@ -1,137 +1,182 @@
 "use client";
-import React from "react";
-import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform, MotionValue } from "motion/react";
+import { cn } from "@/lib/utils";
+
+// 1. Define Project Data Interface and Array
+interface Project {
+  id: number;
+  title: string;
+  category: string;
+  description: string;
+  imageColor: string; // Temporary placeholder until you have real images
+  align: "left" | "right";
+}
+
+const projectsData: Project[] = [
+  {
+    id: 1,
+    title: "Pasada Driver Side",
+    category: "Mobile App",
+    description:
+      "A Location-tracking, Booking Manager and Quota Monitoring App for the Drivers and Conductors of Modernized Jeepneys",
+    imageColor: "bg-red-500",
+    align: "right",
+  },
+  {
+    id: 2,
+    title: "AI Blog Post",
+    category: "Web App",
+    description:
+      "An AI-Powered Blogging Channel for Latest Tech News and Updates",
+    imageColor: "bg-blue-500",
+    align: "left",
+  },
+  {
+    id: 3,
+    title: "To Be Announced",
+    category: "Coming Soon",
+    description:
+      "Next project is still on the back of my mind and will be announced soon",
+    imageColor: "bg-purple-500",
+    align: "right",
+  },
+];
+
+// 2. Sub-component for individual project card
+const ProjectCard = ({
+  project,
+  x,
+  opacity,
+}: {
+  project: Project;
+  x: MotionValue<number>;
+  opacity: MotionValue<number>;
+}) => {
+  return (
+    // Main Project Card Container
+    <motion.div
+      style={{ x, opacity }}
+      className={cn(
+        "w-full flex flex-col items-center justify-center gap-6 text-center",
+        "md:flex-row",
+        project.align === "left" ? "md:flex-row-reverse" : "md:flex-row"
+      )}
+    >
+      {/* Text Section */}
+      <div
+        className={cn(
+          "flex flex-col flex-1",
+          project.align === "right"
+            ? "md:items-end md:text-right"
+            : "md:items-start md:text-left"
+        )}
+      >
+        <h3 className="text-xl font-bold md:text-3xl lg:text-4xl text-white">
+          {project.title}
+        </h3>
+        <p className="text-sm italic text-gray-300 mt-2 md:text-lg">
+          {project.description}
+        </p>
+      </div>
+
+      {/* Project Image Section */}
+      <div
+        className={cn(
+          "w-full h-48 rounded-2xl md:w-1/2 md:h-64 lg:h-80 shadow-lg",
+          project.imageColor
+        )}
+      />
+    </motion.div>
+  );
+};
 
 const Projects = () => {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Dynamic height:
+  // We allocate ~80vh of scroll distance per project to allow time to read and transition
+  const containerHeight = `${Math.max(150, projectsData.length * 90)}dvh`;
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end start"],
+    offset: ["start start", "end end"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, 2750]);
-  const xproject1 = useTransform(scrollYProgress, [.1, .2], [1000, 0]);
-  const xproject2 = useTransform(scrollYProgress, [.25, .4], [-1000, 0]);
-  const xproject3 = useTransform(scrollYProgress, [.45, .6], [1000, 0]);
-  const titleOpacity = useTransform(scrollYProgress, [0, .1], [0, 1]);
-  const project1Opacity = useTransform(scrollYProgress, [.1, .2], [0, 1]);
-  const project2Opacity = useTransform(scrollYProgress, [.3, .4], [0, 1]);
-  const project3Opacity = useTransform(scrollYProgress, [.5, .6], [0, 1]);
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+
   return (
-    // background
-    <motion.div
+    <div
       ref={containerRef}
-      className="bg-black relative w-full h-[275vh] pt-0 px-5 flex flex-col justify-between overflow-hidden
-      md:px-30
-      lg:px-0
-      xl:px-0"
+      className="bg-black relative w-full"
+      style={{ height: containerHeight }}
     >
-      <div className="w-auto h-auto flex flex-col items-top justify-start">
+      <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden py-10">
         {/* Title */}
-        <motion.div style={{ y: y, opacity: titleOpacity }}>
-          <h1
-            className="text-2xl font-bold text-center pt-20
-          md:text-3xl
-          lg:text-4xl
-          xl:text-4xl"
-          >
+        <motion.div
+          style={{ opacity: titleOpacity }}
+          className="absolute top-15 md:top-20 z-10"
+        >
+          <h2 className="text-3xl font-bold text-center md:text-5xl lg:text-6xl text-white">
             Projects
-          </h1>
+          </h2>
         </motion.div>
 
-        {/* Project list*/}
-        <motion.div style={{ y: y }}>
-          <div
-            className="w-full h-full flex flex-col items-center justify-center gap-10 px-5 
-            md:px-10 
-            lg:px-30"
-          >
-            {/* Project */}
-            <motion.div
-              style={{ x: xproject1, opacity: project1Opacity }}
-              className="w-auto h-full flex flex-row items-center justify-center gap-10 self-end"
-            >
-              <div className="w-auto h-auto flex flex-col">
-                <h1
-                  className="text-2xl font-bold text-right
-                md:text-3xl
-                lg:text-4xl
-                xl:text-4xl"
-                >
-                  Pasada Driver Side
-                </h1>
-                <p
-                  className="text-right
-                md:text-xl
-                lg:text-2xl
-                xl:text-2xl"
-                >
-                  An AI-Powered Ride-Hailing and Fleet Management Platform
-                  <br />
-                  for Modernized Jeepneys Services
-                </p>
-              </div>
-              <div className="w-75 h-50 bg-red-500 rounded-2xl"></div>
-            </motion.div>
-            {/* Project */}
-            <motion.div
-              style={{ x: xproject2, opacity: project2Opacity }}
-              className="w-auto h-auto flex flex-row items-center justify-center gap-10 self-start"
-            >
-              <div className="w-75 h-50 bg-red-500 rounded-2xl"></div>
+        {/* Projects List Container */}
+        <div className="w-full max-w-6xl px-5 relative h-full flex items-center justify-center">
+          {projectsData.map((project, i) => {
+            const totalProjects = projectsData.length;
+            // Animation Timeline
+            const timelineStart = 0.1;
+            const timelineEnd = 0.9;
+            const durationPerProject =
+              (timelineEnd - timelineStart) / totalProjects;
 
-              <div className="w-auto h-auto flex flex-col">
-                <h1
-                  className="text-2xl font-bold text-left
-                md:text-3xl
-                lg:text-4xl
-                xl:text-4xl"
-                >
-                  AI Blog Post
-                </h1>
-                <p
-                  className="text-left
-                md:text-xl
-                lg:text-2xl
-                xl:text-2xl"
-                >
-                  An AI-Powered Blogging Channel for Latest <br />
-                  Tech News and Updates
-                </p>
+            // Animation Start and End Times
+            const start = timelineStart + i * durationPerProject;
+            const end = start + durationPerProject * 0.5; // Animation entrance happens in first half of slot
+            const exitStart = start + durationPerProject; // Start exiting when next one starts
+            const exitEnd = exitStart + durationPerProject * 0.2;
+
+            // Position of the Entrance
+            const initialX = project.align === "right" ? 1000 : -1000;
+            const x = useTransform(
+              scrollYProgress,
+              [start, end],
+              [initialX, 0]
+            );
+
+            // Opacity of the Project Card
+            // If it's the last item, it stays visible until the very end
+            const opacityRange =
+              i === totalProjects - 1
+                ? [start, end]
+                : [start, end, exitStart, exitEnd];
+
+            const opacityOutput =
+              i === totalProjects - 1 ? [0, 1] : [0, 1, 1, 0];
+
+            const opacity = useTransform(
+              scrollYProgress,
+              opacityRange,
+              opacityOutput
+            );
+
+            return (
+              <div
+                key={project.id}
+                className="absolute w-full max-w-5xl px-4 pointer-events-none"
+              >
+                {/* Inner wrapper to restore pointer events if needed */}
+                <div className="pointer-events-auto">
+                  <ProjectCard project={project} x={x} opacity={opacity} />
+                </div>
               </div>
-            </motion.div>
-            {/* Project */}
-            <motion.div
-              style={{ x: xproject3, opacity: project3Opacity }}
-              className="w-auto h-full flex flex-row items-center justify-center gap-10 self-end"
-            >
-              <div className="w-auto h-auto flex flex-col">
-                <h1
-                  className="text-2xl font-bold text-right
-                md:text-3xl
-                lg:text-4xl
-                xl:text-4xl"
-                >
-                  To Be Announced
-                </h1>
-                <p
-                  className="text-right
-                md:text-xl
-                lg:text-2xl
-                xl:text-2xl"
-                >
-                  Next project is still on the back of my mind <br />
-                  and will be announced soon
-                </p>
-              </div>
-              <div className="w-75 h-50 bg-red-500 rounded-2xl"></div>
-            </motion.div>
-          </div>
-        </motion.div>
+            );
+          })}
+        </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
