@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Meteors } from "../ui/meteors";
-
+import Link from "next/link";
 
 // 1. Define Project Data Interface and Array
 interface Project {
@@ -13,6 +13,7 @@ interface Project {
   description: string;
   imageColor: string; // Temporary placeholder until you have real images
   align: "left" | "right";
+  link: string;
 }
 
 const projectsData: Project[] = [
@@ -24,6 +25,7 @@ const projectsData: Project[] = [
       "A Location-tracking, Booking Manager and Quota Monitoring App for the Drivers and Conductors of Modernized Jeepneys",
     imageColor: "bg-red-500",
     align: "right",
+    link: "",
   },
   {
     id: 2,
@@ -33,6 +35,7 @@ const projectsData: Project[] = [
       "An AI-Powered Blogging Channel for Latest Tech News and Updates",
     imageColor: "bg-blue-500",
     align: "left",
+    link: "",
   },
   {
     id: 3,
@@ -42,6 +45,7 @@ const projectsData: Project[] = [
       "Next project is still on the back of my mind and will be announced soon",
     imageColor: "bg-purple-500",
     align: "right",
+    link: "",
   },
 ];
 
@@ -60,7 +64,7 @@ const ProjectCard = ({
     <motion.div
       style={{ x, opacity }}
       className={cn(
-        "w-full flex flex-col items-center justify-center gap-3 text-center",
+        "w-full flex flex-col items-center justify-center gap-3 md:px-10 text-center",
         "md:flex-row md:gap-6 lg:gap-10",
         project.align === "left" ? "md:flex-row-reverse" : "md:flex-row"
       )}
@@ -80,12 +84,21 @@ const ProjectCard = ({
         <p className="text-sm italic text-gray-300 mt-2 md:text-lg">
           {project.description}
         </p>
+        {/* View Project Button */}
+        <div
+          className="h-8 w-25 bg-white/90 rounded-full backdrop-blur-xs text-gray-300 mt-3 flex items-center justify-center self-center md:self-auto
+          md:h-10 md:w-30"
+        >
+          <h1 className="hover:text-gray-500 cursor-pointer transition-colors text-black duration-300 text-center text-xs md:text-base font-bold">
+            Learn More
+          </h1>
+        </div>
       </div>
 
       {/* Project Image Section */}
       <div
         className={cn(
-          "w-full h-48 rounded-2xl md:w-1/2 md:h-64 lg:h-80 shadow-lg",
+          "w-full h-48 max-w-sm md:max-w-none rounded-2xl md:w-1/2 md:h-64 lg:h-80 shadow-lg",
           project.imageColor
         )}
       />
