@@ -58,8 +58,8 @@ const ProjectCard = ({
     <motion.div
       style={{ x, opacity }}
       className={cn(
-        "w-full flex flex-col items-center justify-center gap-6 text-center",
-        "md:flex-row",
+        "w-full flex flex-col items-center justify-center gap-3 text-center",
+        "md:flex-row md:gap-6 lg:gap-10",
         project.align === "left" ? "md:flex-row-reverse" : "md:flex-row"
       )}
     >
@@ -96,17 +96,18 @@ const Projects = () => {
 
   // Dynamic height:
   // We allocate ~80vh of scroll distance per project to allow time to read and transition
-  const containerHeight = `${Math.max(150, projectsData.length * 90)}dvh`;
+  const containerHeight = `${Math.max(150, projectsData.length * 110)}dvh`;
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
-  const titleOpacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.1], [0.1, 1]);
 
   return (
     <div
+      id="projects"
       ref={containerRef}
       className="bg-black relative w-full"
       style={{ height: containerHeight }}
@@ -128,15 +129,15 @@ const Projects = () => {
             const totalProjects = projectsData.length;
             // Animation Timeline
             const timelineStart = 0.1;
-            const timelineEnd = 0.9;
+            const timelineEnd = 0.95;
             const durationPerProject =
               (timelineEnd - timelineStart) / totalProjects;
 
             // Animation Start and End Times
             const start = timelineStart + i * durationPerProject;
-            const end = start + durationPerProject * 0.5; // Animation entrance happens in first half of slot
+            const end = start + durationPerProject * 0.6; // Animation entrance happens in first half of slot
             const exitStart = start + durationPerProject; // Start exiting when next one starts
-            const exitEnd = exitStart + durationPerProject * 0.2;
+            const exitEnd = exitStart + durationPerProject * 0.4;
 
             // Position of the Entrance
             const initialX = project.align === "right" ? 1000 : -1000;

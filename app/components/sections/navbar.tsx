@@ -2,12 +2,22 @@
 import Link from "next/link";
 import React from "react";
 import { motion } from "motion/react";
+import { useLenis } from "../smooth-scroll";
 
 const MotionLink = motion.create(Link);
 
 const Navbar = () => {
+  const lenis = useLenis();
+
+  const handleScroll = (id: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (lenis) {
+      lenis.scrollTo(id);
+    }
+  };
+
   const NavBarButtons =
-    "flex bg-[#131316]/10 backdrop-blur-md rounded-full border-1 border-[#6A6B70] transition-all items-center justify-center hover:bg-[#26262C] duration-0 h-10 w-auto px-4 text-sm md:w-25 md:text-base";
+    "flex bg-[#131316]/10 backdrop-blur-md rounded-full border-1 border-[#6A6B70] transition-all items-center justify-center hover:bg-[#26262C] duration-0 h-8 w-auto px-4 text-sm md:w-25 md:h-10 md:text-base";
 
   return (
     // navbar
@@ -30,7 +40,8 @@ const Navbar = () => {
         </MotionLink> */}
 
         <MotionLink
-          href=""
+          href="#projects"
+          onClick={handleScroll("#projects")}
           className={NavBarButtons}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
