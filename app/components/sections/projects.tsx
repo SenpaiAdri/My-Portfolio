@@ -2,6 +2,8 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "motion/react";
 import { cn } from "@/lib/utils";
+import { Meteors } from "../ui/meteors";
+
 
 // 1. Define Project Data Interface and Array
 interface Project {
@@ -112,6 +114,7 @@ const Projects = () => {
       className="bg-black relative w-full"
       style={{ height: containerHeight }}
     >
+      <Meteors number={80} />
       <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden py-10">
         {/* Title */}
         <motion.div
