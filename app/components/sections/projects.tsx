@@ -111,7 +111,7 @@ const Projects = () => {
 
   // Dynamic height:
   // We allocate ~80vh of scroll distance per project to allow time to read and transition
-  const containerHeight = `${Math.max(150, projectsData.length * 110)}dvh`;
+  const containerHeight = `${Math.max(150, projectsData.length * 300)}dvh`;
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -127,12 +127,12 @@ const Projects = () => {
       className="bg-black relative w-full"
       style={{ height: containerHeight }}
     >
-      <Meteors number={80} />
+      <Meteors number={200} />
       <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden py-10">
         {/* Title */}
         <motion.div
           style={{ opacity: titleOpacity }}
-          className="absolute top-15 md:top-20 z-10"
+          className="absolute top-15 md:top-20 z-10"  
         >
           <h2 className="text-3xl font-bold text-center md:text-5xl lg:text-6xl text-white">
             Projects
