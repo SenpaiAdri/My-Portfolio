@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Meteors } from "../ui/meteors";
+import { Marquee } from "../ui/marquee";
 import Link from "next/link";
 
 // 1. Define Project Data Interface and Array
@@ -128,11 +129,11 @@ const Projects = () => {
       style={{ height: containerHeight }}
     >
       <Meteors number={200} />
-      <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden py-10">
+      <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden">
         {/* Title */}
         <motion.div
           style={{ opacity: titleOpacity }}
-          className="absolute top-15 md:top-20 z-10"  
+          className="absolute top-15 md:top-20 z-10"
         >
           <h2 className="text-3xl font-bold text-center md:text-5xl lg:text-6xl text-white">
             Projects
@@ -140,7 +141,7 @@ const Projects = () => {
         </motion.div>
 
         {/* Projects List Container */}
-        <div className="w-full max-w-6xl px-5 relative h-full flex items-center justify-center">
+        <div className="w-full h-full flex items-center justify-center relative">
           {projectsData.map((project, i) => {
             const totalProjects = projectsData.length;
             // Animation Timeline
@@ -180,15 +181,78 @@ const Projects = () => {
             );
 
             return (
-              <div
-                key={project.id}
-                className="absolute w-full max-w-5xl px-4 pointer-events-none"
-              >
-                {/* Inner wrapper to restore pointer events if needed */}
-                <div className="pointer-events-auto">
-                  <ProjectCard project={project} x={x} opacity={opacity} />
+              <React.Fragment key={project.id}>
+                {/* Background Marquee Layer */}
+                <motion.div
+                  style={{ opacity }}
+                  className="absolute inset-0 z-0 flex flex-col justify-center pointer-events-none"
+                >
+                  <div className="absolute inset-0 bg-black/10 z-10" />
+                  <Marquee
+                    reverse
+                    className="[--duration:30s] [--gap:1rem] flex-1 opacity-40 rotate-170 [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]"
+                  >
+                    {/* 
+                        TODO: REPLACE COLORED DIVS WITH IMAGES
+                        1. Import Image from "next/image"
+                        2. Create an array of image paths for this project
+                        3. Map over that array instead of Array(10)
+                        4. Example:
+                           <Image 
+                             src={imagePath} 
+                             alt="Project screenshot" 
+                             fill 
+                             className="object-cover rounded-lg" 
+                           />
+                    */}
+                    {[...Array(10)].map((_, j) => (
+                      <div
+                        key={j}
+                        className={cn(
+                          "h-full w-48 rounded-lg opacity-50 mx-4",
+                          project.imageColor
+                        )}
+                      />
+                    ))}
+                  </Marquee>
+                  <div className="h-5 rotate-170" />
+                  <Marquee className="[--duration:30s] [--gap:2rem] flex-1 opacity-40 rotate-170 [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]">
+                    {/* TODO: Replace with images (see above) */}
+                    {[...Array(10)].map((_, j) => (
+                      <div
+                        key={j}
+                        className={cn(
+                          "h-full w-48 rounded-lg opacity-50 mx-4",
+                          project.imageColor
+                        )}
+                      />
+                    ))}
+                  </Marquee>
+                  <div className="h-5 rotate-170" />
+                  <Marquee
+                    reverse
+                    className="[--duration:30s] [--gap:1rem] flex-1 opacity-40 rotate-170 [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]"
+                  >
+                    {/* TODO: Replace with images (see above) */}
+                    {[...Array(10)].map((_, j) => (
+                      <div
+                        key={j}
+                        className={cn(
+                          "h-full w-48 rounded-lg opacity-50 mx-4",
+                          project.imageColor
+                        )}
+                      />
+                    ))}
+                  </Marquee>
+                </motion.div>
+
+                {/* Content Layer */}
+                <div className="absolute w-full max-w-6xl px-5 pointer-events-none z-20 flex items-center justify-center">
+                  <div className="pointer-events-auto w-full">
+                    <ProjectCard project={project} x={x} opacity={opacity} />
+                  </div>
                 </div>
-              </div>
+              </React.Fragment>
             );
           })}
         </div>

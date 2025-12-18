@@ -8,6 +8,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Projects />
+      
       <div className="h-1000 bg-[#121212]"></div>
     </div>
   );
