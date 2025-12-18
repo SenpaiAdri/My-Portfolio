@@ -8,8 +8,10 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Projects />
-      
-      <div className="h-1000 bg-[#121212]"></div>
+
+      <div className="h-300 bg-[#121212] items-center justify-center flex">
+        <h1 className="text-white text-4xl font-bold text-center">This part is still under construction</h1>
+      </div>
     </div>
   );
 }

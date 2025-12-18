@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Meteors } from "../ui/meteors";
 import { Marquee } from "../ui/marquee";
 import Link from "next/link";
+import Image from "next/image";
 
 // 1. Define Project Data Interface and Array
 interface Project {
@@ -13,8 +14,10 @@ interface Project {
   category: string;
   description: string;
   imageColor: string; // Temporary placeholder until you have real images
+  color: string; // Added explicit hex color for animations
   align: "left" | "right";
   link: string;
+  images?: string[];
 }
 
 const projectsData: Project[] = [
@@ -25,8 +28,25 @@ const projectsData: Project[] = [
     description:
       "A Location-tracking, Booking Manager and Quota Monitoring App for the Drivers and Conductors of Modernized Jeepneys",
     imageColor: "bg-red-500",
+    color: "#ef4444", // red-500
     align: "right",
     link: "",
+    images: [
+      "/pasada_driver_screenshots/pasada_driver_activity_page_view.jpg",
+      "/pasada_driver_screenshots/pasada_driver_activity_page_view2.jpg",
+      "/pasada_driver_screenshots/pasada_driver_dropoff_view.jpg",
+      "/pasada_driver_screenshots/pasada_driver_dropoff_view2.jpg",
+      "/pasada_driver_screenshots/pasada_driver_export_view.jpg",
+      "/pasada_driver_screenshots/pasada_driver_export_view2.jpg",
+      "/pasada_driver_screenshots/pasada_driver_home_driving_view.jpg",
+      "/pasada_driver_screenshots/pasada_driver_home_view.jpg",
+      "/pasada_driver_screenshots/pasada_driver_main_screen.jpg",
+      "/pasada_driver_screenshots/pasada_driver_manual_booking_view.jpg",
+      "/pasada_driver_screenshots/pasada_driver_profile_view.jpg",
+      "/pasada_driver_screenshots/pasada_driver_select_route_view.jpg",
+      "/pasada_driver_screenshots/pasada_driver_start_driving_view.jpg",
+      "/pasada_driver_screenshots/pasada_driver_undo_view.jpg",
+    ],
   },
   {
     id: 2,
@@ -35,6 +55,7 @@ const projectsData: Project[] = [
     description:
       "An AI-Powered Blogging Channel for Latest Tech News and Updates",
     imageColor: "bg-blue-500",
+    color: "#3b82f6", // blue-500
     align: "left",
     link: "",
   },
@@ -45,6 +66,7 @@ const projectsData: Project[] = [
     description:
       "Next project is still on the back of my mind and will be announced soon",
     imageColor: "bg-purple-500",
+    color: "#a855f7", // purple-500
     align: "right",
     link: "",
   },
@@ -85,15 +107,20 @@ const ProjectCard = ({
         <p className="text-sm italic text-gray-300 mt-2 md:text-lg">
           {project.description}
         </p>
-        {/* View Project Button */}
-        <div
-          className="h-8 w-25 bg-white/90 rounded-full backdrop-blur-xs text-gray-300 mt-3 flex items-center justify-center self-center md:self-auto
-          md:h-10 md:w-30"
+        {/* Learn More Button */}
+        <motion.div
+          whileHover={{ scale: 1.02, backgroundColor: project.color }}
+          whileTap={{ scale: 0.9 }}
+          className="h-8 w-25 bg-white/90 rounded-full backdrop-blur-xs text-black mt-3 flex items-center justify-center self-center transition-all duration-300
+          md:self-auto md:h-10 md:w-30 cursor-pointer group"
         >
-          <h1 className="hover:text-gray-500 cursor-pointer transition-colors text-black duration-300 text-center text-xs md:text-base font-bold">
+          <h1
+            className="group-hover:text-white transition-colors duration-300 text-center text-xs font-bold 
+          md:text-base "
+          >
             Learn More
           </h1>
-        </div>
+        </motion.div>
       </div>
 
       {/* Project Image Section */}
@@ -180,6 +207,11 @@ const Projects = () => {
               opacityOutput
             );
 
+            // Only enable pointer events when the project is visible
+            const pointerEvents = useTransform(opacity, (val) =>
+              val > 0.05 ? "auto" : "none"
+            );
+
             return (
               <React.Fragment key={project.id}>
                 {/* Background Marquee Layer */}
@@ -192,65 +224,92 @@ const Projects = () => {
                     reverse
                     className="[--duration:30s] [--gap:1rem] flex-1 opacity-40 rotate-170 [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]"
                   >
-                    {/* 
-                        TODO: REPLACE COLORED DIVS WITH IMAGES
-                        1. Import Image from "next/image"
-                        2. Create an array of image paths for this project
-                        3. Map over that array instead of Array(10)
-                        4. Example:
-                           <Image 
-                             src={imagePath} 
-                             alt="Project screenshot" 
-                             fill 
-                             className="object-cover rounded-lg" 
-                           />
-                    */}
-                    {[...Array(10)].map((_, j) => (
-                      <div
-                        key={j}
-                        className={cn(
-                          "h-full w-48 rounded-lg opacity-50 mx-4",
-                          project.imageColor
-                        )}
-                      />
-                    ))}
+                    {project.images
+                      ? project.images.map((img, j) => (
+                          <div
+                            key={j}
+                            className="h-full w-48 relative mx-4 rounded-lg overflow-hidden opacity-50"
+                          >
+                            <Image
+                              src={img}
+                              alt={`${project.title} screenshot ${j + 1}`}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                        ))
+                      : [...Array(10)].map((_, j) => (
+                          <div
+                            key={j}
+                            className={cn(
+                              "h-full w-48 rounded-lg opacity-50 mx-4",
+                              project.imageColor
+                            )}
+                          />
+                        ))}
                   </Marquee>
                   <div className="h-5 rotate-170" />
                   <Marquee className="[--duration:30s] [--gap:2rem] flex-1 opacity-40 rotate-170 [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]">
-                    {/* TODO: Replace with images (see above) */}
-                    {[...Array(10)].map((_, j) => (
-                      <div
-                        key={j}
-                        className={cn(
-                          "h-full w-48 rounded-lg opacity-50 mx-4",
-                          project.imageColor
-                        )}
-                      />
-                    ))}
+                    {project.images
+                      ? project.images.map((img, j) => (
+                          <div
+                            key={j}
+                            className="h-full w-48 relative mx-4 rounded-lg overflow-hidden opacity-50"
+                          >
+                            <Image
+                              src={img}
+                              alt={`${project.title} screenshot ${j + 1}`}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                        ))
+                      : [...Array(10)].map((_, j) => (
+                          <div
+                            key={j}
+                            className={cn(
+                              "h-full w-48 rounded-lg opacity-50 mx-4",
+                              project.imageColor
+                            )}
+                          />
+                        ))}
                   </Marquee>
                   <div className="h-5 rotate-170" />
                   <Marquee
                     reverse
                     className="[--duration:30s] [--gap:1rem] flex-1 opacity-40 rotate-170 [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]"
                   >
-                    {/* TODO: Replace with images (see above) */}
-                    {[...Array(10)].map((_, j) => (
-                      <div
-                        key={j}
-                        className={cn(
-                          "h-full w-48 rounded-lg opacity-50 mx-4",
-                          project.imageColor
-                        )}
-                      />
-                    ))}
+                    {project.images
+                      ? project.images.map((img, j) => (
+                          <div
+                            key={j}
+                            className="h-full w-48 relative mx-4 rounded-lg overflow-hidden opacity-50"
+                          >
+                            <Image
+                              src={img}
+                              alt={`${project.title} screenshot ${j + 1}`}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                        ))
+                      : [...Array(10)].map((_, j) => (
+                          <div
+                            key={j}
+                            className={cn(
+                              "h-full w-48 rounded-lg opacity-50 mx-4",
+                              project.imageColor
+                            )}
+                          />
+                        ))}
                   </Marquee>
                 </motion.div>
 
                 {/* Content Layer */}
                 <div className="absolute w-full max-w-6xl px-5 pointer-events-none z-20 flex items-center justify-center">
-                  <div className="pointer-events-auto w-full">
+                  <motion.div style={{ pointerEvents }} className="w-full">
                     <ProjectCard project={project} x={x} opacity={opacity} />
-                  </div>
+                  </motion.div>
                 </div>
               </React.Fragment>
             );
