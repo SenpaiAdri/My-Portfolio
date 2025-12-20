@@ -4,7 +4,6 @@ import { motion, useScroll, useTransform, MotionValue } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Meteors } from "../ui/meteors";
 import { Marquee } from "../ui/marquee";
-import Link from "next/link";
 import Image from "next/image";
 
 // 1. Define Project Data Interface and Array
@@ -14,6 +13,7 @@ interface Project {
   category: string;
   description: string;
   imageColor: string; // Temporary placeholder until you have real images
+  logo?: string; // Path to the project logo
   color: string; // Added explicit hex color for animations
   align: "left" | "right";
   link: string;
@@ -28,6 +28,7 @@ const projectsData: Project[] = [
     description:
       "A Location-tracking, Booking Manager and Quota Monitoring App for the Drivers and Conductors of Modernized Jeepneys",
     imageColor: "bg-red-500",
+    logo: "/project_logo/pasada_driver_logo.svg",
     color: "#ef4444", // red-500
     align: "right",
     link: "",
@@ -111,7 +112,7 @@ const ProjectCard = ({
         <motion.div
           whileHover={{ scale: 1.02, backgroundColor: project.color }}
           whileTap={{ scale: 0.9 }}
-          className="h-8 w-25 bg-white/90 rounded-full backdrop-blur-xs text-black mt-3 flex items-center justify-center self-center transition-all duration-300
+          className="h-8 w-25 bg-white/90 rounded-full backdrop-blur-xs text-black mt-3 flex items-center justify-center self-center transition-colors duration-300
           md:self-auto md:h-10 md:w-30 cursor-pointer group"
         >
           <h1
@@ -126,10 +127,18 @@ const ProjectCard = ({
       {/* Project Image Section */}
       <div
         className={cn(
-          "w-full h-48 max-w-sm md:max-w-none rounded-2xl md:w-1/2 md:h-64 lg:h-80 shadow-lg",
-          project.imageColor
+          "w-full h-48 max-w-sm md:max-w-none rounded-4xl md:w-1/2 md:h-64 lg:h-80 shadow-lg relative overflow-hidden"
         )}
-      />
+      >
+        {project.logo && (
+          <Image
+            src={project.logo}
+            alt={`${project.title} logo`}
+            fill
+            className="object-contain"
+          />
+        )}
+      </div>
     </motion.div>
   );
 };
@@ -222,7 +231,7 @@ const Projects = () => {
                   <div className="absolute inset-0 bg-black/10 z-10" />
                   <Marquee
                     reverse
-                    className="[--duration:30s] [--gap:1rem] flex-1 opacity-40 rotate-170 [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]"
+                    className="[--duration:30s] [--gap:1rem] flex-1 opacity-40 rotate-350 [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]"
                   >
                     {project.images
                       ? project.images.map((img, j) => (
@@ -249,7 +258,7 @@ const Projects = () => {
                         ))}
                   </Marquee>
                   <div className="h-5 rotate-170" />
-                  <Marquee className="[--duration:30s] [--gap:2rem] flex-1 opacity-40 rotate-170 [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]">
+                  <Marquee className="[--duration:30s] [--gap:2rem] flex-1 opacity-40 rotate-350 [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]">
                     {project.images
                       ? project.images.map((img, j) => (
                           <div
@@ -277,7 +286,7 @@ const Projects = () => {
                   <div className="h-5 rotate-170" />
                   <Marquee
                     reverse
-                    className="[--duration:30s] [--gap:1rem] flex-1 opacity-40 rotate-170 [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]"
+                    className="[--duration:30s] [--gap:1rem] flex-1 opacity-40 rotate-350 [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]"
                   >
                     {project.images
                       ? project.images.map((img, j) => (

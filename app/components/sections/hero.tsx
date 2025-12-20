@@ -11,9 +11,9 @@ const Hero = () => {
     offset: ["start start", "end start"],
   });
 
-  const xTop = useTransform(scrollYProgress, [0, 1], [0, 500]);
-  const yCenter = useTransform(scrollYProgress, [0, 1], [0, 300]);
-  const xBottom = useTransform(scrollYProgress, [0, 1], [0, -500]);
+  const xTop = useTransform(scrollYProgress, [0, 1], [0, 700]);
+  const yCenter = useTransform(scrollYProgress, [0, 1], [0, 500]);
+  const xBottom = useTransform(scrollYProgress, [0, 1], [0, -700]);
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   const transition = {
@@ -34,7 +34,7 @@ const Hero = () => {
       {/* Meteors */}
       <Meteors number={80} />
       {/* Top Right Content */}
-      <motion.div style={{ x: xTop, opacity }}>
+      <motion.div style={{ x: xTop, opacity , y:xTop}}>
         {/* Top Right Content Container */}
         <div
           className="flex flex-col items-center justify-center gap-5 px-4 mt-20
