@@ -127,7 +127,7 @@ const ProjectCard = ({
       {/* Project Image Section */}
       <div
         className={cn(
-          "w-full h-48 max-w-sm md:max-w-none rounded-4xl md:w-1/2 md:h-64 lg:h-80 shadow-lg relative overflow-hidden"
+          "w-full h-48 max-w-sm md:max-w-none rounded-4xl md:w-1/2 md:h-64 lg:h-80 relative overflow-hidden"
         )}
       >
         {project.logo && (
@@ -286,10 +286,10 @@ const Projects = () => {
                   <div className="h-5 rotate-170" />
                   <Marquee
                     reverse
-                    className="[--duration:30s] [--gap:1rem] flex-1 opacity-40 rotate-350 [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]"
+                    className="[--duration:35s] [--gap:1rem] flex-1 opacity-40 rotate-350 [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]"
                   >
                     {project.images
-                      ? project.images.map((img, j) => (
+                      ? [...project.images].reverse().map((img, j) => (
                           <div
                             key={j}
                             className="h-full w-48 relative mx-4 rounded-lg overflow-hidden opacity-50"
