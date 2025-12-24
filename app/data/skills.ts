@@ -1,0 +1,52 @@
+export const skills = [
+    {
+        type: "Language",
+        list: ["Dart",
+            "Typescript",
+            "Java",
+            "Python",
+            "C#",],
+        image: [
+            "/skills/languages/dart.svg",
+            "/skills/languages/ts.svg",
+            "/skills/languages/java.svg",
+            "/skills/languages/python.svg",
+            "/skills/languages/csharp.svg",],
+    },
+    {
+        type: "Frontend/Web",
+        list: ["React",
+            "Next.js",
+            "Tailwind CSS",
+            "HTML",
+            "CSS",],
+        image: [
+            "/skills/frontend/react.svg",
+            "/skills/frontend/nextjs.svg",
+            "/skills/frontend/tailwindcss.svg",
+            "/skills/frontend/html.svg",
+            "/skills/frontend/css.svg",],
+    },
+    {
+        type: "Backend/Database",
+        list: ["PostgreSQL",
+            "MySQL",
+            "Supabase",
+            "Firebase",
+            "Google Cloud Platform",],
+        image: [
+            "/skills/backend/postgresql.svg",
+            "/skills/backend/mysql.svg",
+            "/skills/backend/supabase.svg",
+            "/skills/backend/firebase.svg",
+            "/skills/backend/gcp.svg",],
+    },
+    {
+        type: "Mobile",
+        list: ["Flutter",
+            "Java",],
+        image: [
+            "/skills/mobile/flutter.svg",
+            "/skills/mobile/androidstudio.svg",],
+    },
+];

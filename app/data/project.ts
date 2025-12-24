@@ -1,4 +1,3 @@
-// 1. Define Project Data Interface and Array
 export interface Project {
   id: number;
   title: string;
