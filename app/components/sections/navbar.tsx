@@ -30,15 +30,6 @@ const Navbar = () => {
           gap-2 pe-0 
           md:gap-5 md:pe-2"
       >
-        {/* <MotionLink
-          href=""
-          className={NavBarButtons}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Skills
-        </MotionLink> */}
-
         <MotionLink
           href="#projects"
           onClick={handleScroll("#projects")}
@@ -49,6 +40,16 @@ const Navbar = () => {
           Projects
         </MotionLink>
 
+        <MotionLink
+          href="#skills"
+          onClick={handleScroll("#skills")}
+          className={NavBarButtons}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Skills
+        </MotionLink>
+        
         <MotionLink
           href=""
           className={NavBarButtons}

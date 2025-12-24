@@ -36,7 +36,7 @@ const Projects = () => {
           style={{ opacity: titleOpacity }}
           className="absolute top-15 md:top-20 z-10"
         >
-          <h2 className="text-3xl font-bold text-center md:text-5xl lg:text-6xl text-white">
+          <h2 className="text-3xl font-bold text-center md:text-5xl lg:text-5xl text-white">
             Projects
           </h2>
         </motion.div>

@@ -10,7 +10,7 @@ export default function Home() {
       <Hero />
       <Projects />
       <Skills />
-      <div className="h-300 bg-[#121212] items-center justify-center flex">
+      <div className="h-screen bg-[#121212] items-center justify-center flex">
         <h1 className="text-white text-4xl font-bold text-center">This part is still under construction</h1>
       </div>
     </div>
