@@ -48,7 +48,7 @@ const Hero = () => {
               w-full px-6 py-10
               lg:block lg:w-auto lg:p-8
               xl:w-auto xl:p-8
-              hover:bg-[#393A41] cursor-pointer
+              hover:bg-[#393A41]/25 cursor-pointer
               transition-colors duration-300"
             initial={{ opacity: 0, y: -200 }}
             animate={{ opacity: 1, y: 0 }}
@@ -71,7 +71,7 @@ const Hero = () => {
               w-full px-6 py-10 text-center 
               lg:w-auto lg:p-8 lg:text-right 
               xl:w-auto xl:p-8 xl:text-right
-              hover:bg-[#393A41] cursor-pointer
+              hover:bg-[#393A41]/25 cursor-pointer
               transition-colors duration-300"
             initial={{ opacity: 0, x: 200 }}
             animate={{ opacity: 1, x: 0 }}
@@ -143,7 +143,7 @@ const Hero = () => {
               w-full p-6 
               lg:w-110 lg:p-8 lg:text-left
               xl:w-auto xl:p-8
-              hover:bg-[#393A41] cursor-pointer
+              hover:bg-[#393A41]/25 cursor-pointer
               transition-colors duration-300"
             initial={{ opacity: 0, x: -200 }}
             animate={{ opacity: 1, x: 0 }}
@@ -177,7 +177,7 @@ const Hero = () => {
             w-full p-6 text-center 
             lg:block lg:w-auto lg:p-8 lg:text-left
             xl:w-auto xl:p-8 xl:text-left
-            hover:bg-[#393A41] cursor-pointer
+            hover:bg-[#393A41]/25 cursor-pointer
             transition-colors duration-300"
             initial={{ opacity: 0, y: 200 }}
             animate={{ opacity: 1, y: 0 }}
@@ -208,7 +208,7 @@ const Hero = () => {
           >
             <motion.h1
               className="text-xl pb-20 text-center whitespace-nowrap
-              lg:text-3xl lg:text-left lg:text-lg 
+              lg:text-3xl lg:text-left
               xl:text-2xl xl:text-left xl:pb-5
               hover:text-gray-500 cursor-pointer
               transition-colors duration-300"

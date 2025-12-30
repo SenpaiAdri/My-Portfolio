@@ -13,7 +13,7 @@ const Projects = () => {
 
   // Dynamic height:
   // We allocate ~80vh of scroll distance per project to allow time to read and transition
-  const containerHeight = `${Math.max(150, projectsData.length * 300)}dvh`;
+  const containerHeight = `${Math.max(150, projectsData.length * 250)}dvh`;
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -46,8 +46,8 @@ const Projects = () => {
           {projectsData.map((project, i) => {
             const totalProjects = projectsData.length;
             // Animation Timeline
-            const timelineStart = 0.1;
-            const timelineEnd = 0.95;
+            const timelineStart = 0.05;
+            const timelineEnd = 0.98;
             const durationPerProject =
               (timelineEnd - timelineStart) / totalProjects;
 

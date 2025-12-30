@@ -15,11 +15,11 @@ export const skills = [
     },
     {
         type: "Frontend/Web",
-        list: ["React",
+        list: ["React.js",
             "Next.js",
             "Tailwind CSS",
-            "HTML",
-            "CSS",],
+            "HTML5",
+            "CSS3",],
         image: [
             "/skills/frontend/react.svg",
             "/skills/frontend/nextjs.svg",

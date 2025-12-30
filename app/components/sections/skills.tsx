@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { skills } from "@/app/data/skills";
+import Tooltip from "@/app/components/ui/tooltip";
 const Skills = () => {
 
   const skillList = skills.map((skill) => (
@@ -17,7 +18,18 @@ const Skills = () => {
           className="text-white text-xl flex items-center justify-center p-2"
           >
             {/* <h1>{item}</h1> */}
-            <Image src={skill.image[index]} alt={item} width={50} height={50} className="m-2 hover:scale-120 transition-all duration-300" />
+            <Tooltip text={item}>
+              <span tabIndex={0} className="outline-none">
+                <Image
+                  src={skill.image[index]}
+                  alt={item}
+                  title={item}
+                  width={50}
+                  height={50}
+                  className="m-2 hover:scale-120 transition-all duration-300"
+                />
+              </span>
+            </Tooltip>
           </div> 
         ))}
       </div>
