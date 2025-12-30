@@ -19,7 +19,7 @@ const Navbar = () => {
   };
 
   const NavBarButtons =
-    "group flex bg-[#131316]/10 backdrop-blur-md rounded-full border-1 border-[#6A6B70] transition-colors items-center justify-center hover:bg-[#26262C]/50 duration-200 h-8 w-auto px-4 text-sm md:w-25 md:h-10 md:text-base";
+    "group flex whitespace-nowrap bg-[#131316]/10 backdrop-blur-md rounded-full border-1 border-[#6A6B70] transition-colors items-center justify-center hover:bg-[#26262C]/50 duration-200 h-8 w-auto px-3 text-xs md:w-25 md:h-10 md:text-base";
 
   return (
     // navbar
@@ -41,7 +41,8 @@ const Navbar = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <RollText text={item.name} fill className="h-full w-full leading-none" />
+            {/* {item.name} */}
+            <RollText text={item.name} fill className="h-full leading-none" />
           </MotionLink>
         ))}
       </div>

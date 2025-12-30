@@ -18,14 +18,14 @@ export default function RollText({ text, className, fill, children }: RollTextPr
   return (
     <span
       className={[
-        "relative block overflow-hidden",
-        fill ? "h-full w-full" : "inline-block",
+        "relative inline-flex overflow-hidden whitespace-nowrap",
+        fill ? "h-full items-center justify-center" : "",
         className ?? "",
       ].join(" ")}
     >
-      {/* Sizer: keeps width/height in normal flow so the absolutely-positioned text can render.
-          In `fill` mode, the parent provides sizing (e.g. a fixed-height button). */}
-      {!fill && <span className="block opacity-0">{content}</span>}
+      <span className={["invisible", fill ? "flex h-full items-center justify-center" : "block"].join(" ")}>
+        {content}
+      </span>
 
       <span className="pointer-events-none absolute inset-0">
         <span className="absolute inset-0 flex items-center justify-center translate-y-0 transition-transform duration-300 ease-out will-change-transform group-hover:-translate-y-full group-focus-visible:-translate-y-full">
