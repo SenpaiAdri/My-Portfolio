@@ -41,12 +41,11 @@ const Skills = () => {
       <div className="flex flex-col items-center justify-center py-5 md:py-10 px-5 md:px-10">
         <h1 className="text-3xl font-bold text-center mt-10 md:text-5xl lg:text-5xl text-white">Skills</h1>
         {/* Skills Container */}
-        <div className="bg-[#26262C] rounded-[35px] md:rounded-[45px] lg:rounded-[50px] p-5 my-6 md:my-20 grid grid-cols-1 
-        md:grid-cols-2 gap-6 shadow-xl shadow-[#26262C]/10 
-        md:p-10 md:gap-10
-        lg:my-50
-        lg:grid-cols-4
-        hover:shadow-[#26262C]/20 transition-all duration-300">
+        <div className="bg-[#26262C] rounded-[35px] md:rounded-[45px] lg:rounded-[50px] p-5 my-6 gap-6 grid grid-cols-1 
+        sm:my-20 sm:grid-cols-2 sm:p-5 sm:gap-4
+        md:my-20 md:grid-cols-2 md:p-8 md:gap-8
+        lg:my-50 lg:grid-cols-4 lg:p-10 lg:gap-10
+        hover:shadow-[#26262C]/20 transition-all duration-300 shadow-xl shadow-[#26262C]/10">
             {skillList}
         </div>
       </div>
