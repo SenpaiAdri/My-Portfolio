@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import { skills } from "@/app/data/skills";
 import Tooltip from "@/app/components/ui/tooltip";
