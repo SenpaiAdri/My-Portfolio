@@ -20,7 +20,7 @@ const Projects = () => {
     offset: ["start start", "end end"],
   });
 
-  const titleOpacity = useTransform(scrollYProgress, [0, 0.1], [0.1, 1]);
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
     <div

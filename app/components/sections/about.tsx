@@ -13,7 +13,7 @@ const About = () => {
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
+          viewport={{ amount: 0.2 }}
         >
           About Me
         </motion.h1>
@@ -25,7 +25,7 @@ const About = () => {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
+            viewport={{ amount: 0.2 }}
           >
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed">
               I&apos;m <span className="text-white font-semibold">Adrian M. De Guzman</span>, a Computer Science student major in <span className="text-white">Mobile Programming</span>. 
@@ -48,7 +48,7 @@ const About = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
+            viewport={{ amount: 0.2 }}
           >
              <div className="relative w-64 h-64 md:w-90 md:h-100 rounded-full border-2 border-white flex items-center justify-center bg-[#111] overflow-hidden">
                 {/* You can replace this with an actual image later */}

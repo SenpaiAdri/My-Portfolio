@@ -26,7 +26,7 @@ const Hero = () => {
     <div
       // Attach the ref here so useScroll knows which element to measure
       ref={containerRef}
-      className="relative w-full min-h-screen pt-10 pb-0 px-5 flex flex-col justify-between overflow-hidden
+      className="bg-black relative w-full min-h-screen pt-10 pb-0 px-5 flex flex-col justify-between overflow-hidden
       md:px-30
       lg:pb-0 lg:pt-0 lg:px-0
       xl:pb-0 xl:pt-0 xl:px-0"

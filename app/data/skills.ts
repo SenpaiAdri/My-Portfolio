@@ -12,6 +12,7 @@ export const skills = [
             "/skills/languages/java.svg",
             "/skills/languages/python.svg",
             "/skills/languages/csharp.svg",],
+        initialx: -75,
     },
     {
         type: "Frontend/Web",
@@ -26,6 +27,7 @@ export const skills = [
             "/skills/frontend/tailwindcss.svg",
             "/skills/frontend/html.svg",
             "/skills/frontend/css.svg",],
+        initialx: -50,
     },
     {
         type: "Backend/Database",
@@ -40,6 +42,7 @@ export const skills = [
             "/skills/backend/supabase.svg",
             "/skills/backend/firebase.svg",
             "/skills/backend/gcp.svg",],
+        initialx: 50,
     },
     {
         type: "Mobile",
@@ -48,5 +51,6 @@ export const skills = [
         image: [
             "/skills/mobile/flutter.svg",
             "/skills/mobile/androidstudio.svg",],
+        initialx: 75,
     },
 ];
