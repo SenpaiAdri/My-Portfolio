@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const About = () => {
   return (
-    <div id="about" className="relative w-full py-20 px-5 items-center justify-center md:px-10 bg-[#0a0a0a] overflow-hidden">
+    <div id="about" className="relative w-full py-20 px-10 items-center justify-center md:px-25 bg-[#0a0a0a] overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col items-center justify-center">
         {/* Section Title */}
         <motion.h1

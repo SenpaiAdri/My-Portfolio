@@ -6,7 +6,7 @@ export interface Project {
   logo?: string; // Path to the project logo
   color: string; // Added explicit hex color for animations
   align: "left" | "right";
-  link: string;
+  link?: string;
   images?: string[];
 }
 
@@ -20,7 +20,6 @@ export const projectsData: Project[] = [
     logo: "/project_logo/pasada_driver_logo.svg",
     color: "#ef4444", // red-500
     align: "right",
-    link: "",
     images: [
       "/pasada_driver_screenshots/pasada_driver_activity_page_view.jpg",
       "/pasada_driver_screenshots/pasada_driver_dropoff_view.jpg",
@@ -44,6 +43,7 @@ export const projectsData: Project[] = [
     description:
       "An AI-Powered Blogging Channel for Latest Tech News and Updates",
     imageColor: "bg-blue-500",
+    logo: "/project_logo/ai_blogpost_logo.svg",
     color: "#3b82f6", // blue-500
     align: "left",
     link: "",
@@ -56,6 +56,5 @@ export const projectsData: Project[] = [
     imageColor: "bg-purple-500",
     color: "#a855f7", // purple-500
     align: "right",
-    link: "",
   },
 ];
