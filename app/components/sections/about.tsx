@@ -9,7 +9,7 @@ const About = () => {
       <div className="max-w-7xl mx-auto flex flex-col items-center justify-center">
         {/* Section Title */}
         <motion.h1
-          className="text-3xl font-bold text-center mb-10 md:text-5xl lg:text-5xl text-white"
+          className="text-3xl font-bold text-center mb-10 md:text-5xl text-white"
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -28,17 +28,21 @@ const About = () => {
             viewport={{ amount: 0.2 }}
           >
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed">
-              I&apos;m <span className="text-white font-semibold">Adrian M. De Guzman</span>, a Computer Science student major in <span className="text-white">Mobile Programming</span>. 
-              My journey in tech is driven by a fascination with building practical applications that solve real-world problems.
+              Hi, I&apos;m <span className="text-white font-semibold">Adrian M. De Guzman</span> and I&apos;m a Computer Science student specialized in <span className="text-white">Mobile Programming</span>. 
+              I am currently looking for an internship where i can gain hands-on experience and develop skills aligned with the current industry standards. I'd like to explore new technologies, learn new skills, and adapt to the fast-changing tech industry.
             </p>
             
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed">
-              Currently, I&apos;m focused on cross-platform development using <span className="text-[#38BDF8] font-medium">Flutter</span> and learning modern web development with <span className="text-white font-medium">Next.js</span>. 
-              I&apos;m one of the developers behind <span className="text-white font-semibold">Pasada</span>, an AI-powered platform modernizing public transportation.
+              Recently, I&apos;m worked with <a href="https://flutter.dev/" target="_blank" rel="noopener noreferrer" className="text-[#38BDF8] font-medium">Flutter</a> Framework, 
+              which i used to build the driver side of the <span className="text-white font-semibold">Pasada Systems</span>, an AI-powered Ride Hailing and Fleet Management System 
+              for Modernized Jeepney Services. Im currently working with projects using modern web development technologies with <span className="text-white font-medium">Next.js</span>, which I used to build this portfolio.
             </p>
 
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed">
-              Beyond coding, I&apos;m constantly exploring new technologies to enhance my skills and widen my knowledge. I believe in writing clean, maintainable code and am eager to collaborate on projects that make a difference.
+              I am currently looking for an internship where I can apply my skills in mobile and web development while learning from 
+              experienced developers and engineers. I look forward to working in environments that focuses on good engineering practices, 
+              collaboration and continuous learning. I want to contribute to real production systems while gaining experience to the 
+              current industry tools, practices, and standards.
             </p>
           </motion.div>
 
