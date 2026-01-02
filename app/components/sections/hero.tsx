@@ -2,6 +2,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import React, { useRef } from "react";
 import { Meteors } from "../ui/meteors";
+import { HandleScroll } from "../handle-scroll";
 
 const Hero = () => {
   const containerRef = useRef(null);
@@ -206,8 +207,8 @@ const Hero = () => {
           xl:mx-auto
           lg:w-auto lg:p-8"
           >
-            <motion.h1
-              className="text-xl pb-20 text-center whitespace-nowrap
+            <motion.a
+              className="text-xl pb-20 text-center whitespace-nowrap block
               lg:text-3xl lg:text-left
               xl:text-2xl xl:text-left xl:pb-5
               hover:text-gray-500 cursor-pointer
@@ -217,9 +218,10 @@ const Hero = () => {
               transition={transition}
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.95 }}
+              onClick={HandleScroll("#contact")}
             >
               [ Let&apos;s Connect ]
-            </motion.h1>
+            </motion.a>
           </div>
         </div>
       </motion.div>
