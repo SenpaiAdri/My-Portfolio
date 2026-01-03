@@ -44,7 +44,7 @@ export const ProjectCard = ({
       {/* Text Section */}
       <div
         className={cn(
-          "flex flex-col flex-1",
+          "flex flex-col flex-1 w-auto",
           project.align === "right"
             ? "md:items-end md:text-right"
             : "md:items-start md:text-left"
@@ -62,8 +62,8 @@ export const ProjectCard = ({
           <motion.div
             whileHover={{ scale: 1.02, backgroundColor: project.color }}
             whileTap={{ scale: 0.9 }}
-            className="h-8 w-auto px-4 bg-white/90 rounded-full backdrop-blur-xs text-black mt-3 flex items-center justify-center self-center transition-colors duration-300
-            md:self-auto md:h-10 cursor-pointer group"
+            className="w-fit py-2 px-4 bg-white/90 rounded-full backdrop-blur-xs text-black mt-3 mx-auto flex items-center justify-center transition-colors duration-300
+            md:h-10 cursor-pointer group"
           >
             <h1
               className="group-hover:text-white transition-colors duration-300 text-center text-xs font-bold 
