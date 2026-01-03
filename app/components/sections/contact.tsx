@@ -58,7 +58,9 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div className="w-full grid grid-cols-1  gap-12 px-5 
+        sm:px-20
+        lg:grid-cols-2 lg:gap-20 items-start">
           {/* Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -67,14 +69,14 @@ const Contact = () => {
             viewport={{ once: true }}
             className="p-8 rounded-3xl border border-[#333]"
           >
-            <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-6">
+            <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-6 ">
               <div className="flex flex-col gap-2">
                 <label className="text-sm text-gray-400 font-medium ml-1">Your Name</label>
                 <input
                   type="text"
                   name="user_name"
                   required
-                  placeholder="John Doe"
+                  placeholder="Juan Dela Cruz"
                   className="w-full p-4 rounded-xl bg-[#0a0a0a] border border-[#333] text-white focus:outline-none focus:border-white transition-colors"
                 />
               </div>
@@ -85,7 +87,7 @@ const Contact = () => {
                   type="email"
                   name="user_email"
                   required
-                  placeholder="john@example.com"
+                  placeholder="juan@example.com"
                   className="w-full p-4 rounded-xl bg-[#0a0a0a] border border-[#333] text-white focus:outline-none focus:border-white transition-colors"
                 />
               </div>
@@ -103,7 +105,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-2 bg-white text-black font-bold py-4 px-8 rounded-xl hover:bg-gray-200 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="mt-2 bg-white text-black font-bold py-4 px-8 rounded-xl hover:bg-gray-300 hover:scale-101 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
@@ -126,8 +128,8 @@ const Contact = () => {
              className="flex flex-col gap-8"
           >
              <div className="space-y-6">
-                <h2 className="text-2xl font-semibold text-gray-200">Or connect with me</h2>
-                <div className="flex flex-row gap-4">
+                <h2 className="text-2xl font-semibold text-gray-200 text-center lg:text-left">Or connect with me</h2>
+                <div className="flex flex-row flex-wrap justify-center lg:justify-start gap-4">
                   {/* Email */}
                   <a href="mailto:adrian31dg@gmail.com" className="flex items-center gap-4 hover:text-white transition-colors p-4 rounded-xl border border-[#333] hover:bg-[#1a1a1a]">
                     <Image src="/contact_icons/gmail/gmail-white.png" alt="Email" width={30} height={30} />

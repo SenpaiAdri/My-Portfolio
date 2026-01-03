@@ -91,7 +91,7 @@ const Hero = () => {
                 text-base 
                 xl:text-2xl"
             >
-              A Computer Science Student Major{" "}
+              A Computer Science Student Specialized{" "}
               <br className="hidden md:block" />
               In Mobile Programming
             </p>
@@ -198,7 +198,7 @@ const Hero = () => {
                 text-xl 
                 xl:text-2xl"
             >
-              Dart | Flutter | PostgreSQL <br /> Supabase | Figma
+              Dart | Flutter | PostgreSQL <br /> Supabase | Next.js
             </p>
           </motion.div>
           {/* Lets Connect*/}

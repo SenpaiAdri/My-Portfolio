@@ -48,13 +48,13 @@ export const projectsData: Project[] = [
     align: "left",
     link: "",
   },
-  {
-    id: 3,
-    title: "To Be Announced",
-    description:
-      "Next project is still on the back of my mind and will be announced soon",
-    imageColor: "bg-purple-500",
-    color: "#a855f7", // purple-500
-    align: "right",
-  },
+  // {
+  //   id: 3,
+  //   title: "To Be Announced",
+  //   description:
+  //     "Next project is still on the back of my mind and will be announced soon",
+  //   imageColor: "bg-purple-500",
+  //   color: "#a855f7", // purple-500
+  //   align: "right",
+  // },
 ];

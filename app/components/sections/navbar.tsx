@@ -30,6 +30,9 @@ const Navbar = () => {
             className={NavBarButtons}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            initial={{ opacity: 0, y: -250 }}
+            transition={{ duration: 1.8, ease: "easeOut", delay: 0.5 }}
+            animate={{ opacity: 1, y: 0 }}
           >
             {/* {item.name} */}
             <RollText text={item.name} fill className="h-full leading-none" />

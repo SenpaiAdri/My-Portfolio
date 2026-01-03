@@ -13,7 +13,7 @@ const Projects = () => {
 
   // Dynamic height:
   // We allocate ~80vh of scroll distance per project to allow time to read and transition
-  const containerHeight = `${Math.max(150, projectsData.length * 250)}dvh`;
+  const containerHeight = `${Math.max(150, projectsData.length * 200)}dvh`;
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
