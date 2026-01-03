@@ -33,9 +33,9 @@ const About = () => {
             </p>
             
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed">
-              Recently, I&apos;m worked with <a href="https://flutter.dev/" target="_blank" rel="noopener noreferrer" className="text-[#38BDF8] font-medium">Flutter</a> Framework, 
+              Recently, I have worked with <a href="https://flutter.dev/" target="_blank" rel="noopener noreferrer" className="text-[#38BDF8] font-medium">Flutter</a> Framework, 
               which i used to build the driver side of the <span className="text-white font-semibold">Pasada Systems</span>, an AI-powered Ride Hailing and Fleet Management System 
-              for Modernized Jeepney Services. Im currently working with projects using modern web development technologies with <span className="text-white font-medium">Next.js</span>, which I used to build this portfolio.
+              for Modernized Jeepney Services. I&apos;m currently working with projects using modern web development technologies with <span className="text-white font-medium">Next.js</span>, which I used to build this portfolio.
             </p>
 
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed">
