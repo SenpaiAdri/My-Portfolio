@@ -4,6 +4,8 @@ import { motion, MotionValue } from "motion/react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
+import Link from "next/link";
+
 export const ProjectCard = ({
   project,
   x,
@@ -54,20 +56,23 @@ export const ProjectCard = ({
         <p className="text-sm italic text-gray-300 mt-2 md:text-lg">
           {project.description}
         </p>
+
         {/* Learn More Button */}
-        <motion.div
-          whileHover={{ scale: 1.02, backgroundColor: project.color }}
-          whileTap={{ scale: 0.9 }}
-          className="h-8 w-auto px-4 bg-white/90 rounded-full backdrop-blur-xs text-black mt-3 flex items-center justify-center self-center transition-colors duration-300
-          md:self-auto md:h-10 cursor-pointer group"
-        >
-          <h1
-            className="group-hover:text-white transition-colors duration-300 text-center text-xs font-bold 
-          md:text-base "
+        <Link href={project.slug ? `/projects/${project.slug}` : "#"}>
+          <motion.div
+            whileHover={{ scale: 1.02, backgroundColor: project.color }}
+            whileTap={{ scale: 0.9 }}
+            className="h-8 w-auto px-4 bg-white/90 rounded-full backdrop-blur-xs text-black mt-3 flex items-center justify-center self-center transition-colors duration-300
+            md:self-auto md:h-10 cursor-pointer group"
           >
-            {project.link ? "Learn More" : "Coming Soon"}
-          </h1>
-        </motion.div>
+            <h1
+              className="group-hover:text-white transition-colors duration-300 text-center text-xs font-bold 
+            md:text-base "
+            >
+              {project.slug ? "Learn More" : "Coming Soon"}
+            </h1>
+          </motion.div>
+        </Link>
       </div>
     </motion.div>
   );

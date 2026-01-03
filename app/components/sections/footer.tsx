@@ -7,6 +7,7 @@ const Footer = () => {
                 </div>
             </div> */}
             <h1 className="text-white text-center text-sm">© {new Date().getFullYear()} All rights reserved</h1>
+            <a href="/RESUME-DEGUZMAN,ADRIAN.pdf" download className="text-gray-500 text-xs mt-2 hover:text-white transition-colors">Download CV</a>
 
         </div>
     );

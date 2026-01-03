@@ -129,7 +129,7 @@ const Contact = () => {
           >
              <div className="space-y-6">
                 <h2 className="text-2xl font-semibold text-gray-200 text-center lg:text-left">Or connect with me</h2>
-                <div className="flex flex-row flex-wrap justify-center lg:justify-start gap-4">
+                 <div className="flex flex-row flex-wrap justify-center lg:justify-start gap-4">
                   {/* Email */}
                   <a href="mailto:adrian31dg@gmail.com" className="flex items-center gap-4 hover:text-white transition-colors p-4 rounded-xl border border-[#333] hover:bg-[#1a1a1a]">
                     <Image src="/contact_icons/gmail/gmail-white.png" alt="Email" width={30} height={30} />
@@ -150,6 +150,22 @@ const Contact = () => {
                   <a href="https://www.instagram.com/eydriannn/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-white transition-colors p-4 rounded-xl border border-[#333] hover:bg-[#1a1a1a]">
                     <Image src="/contact_icons/instagram/Instagram_Glyph_White.svg" alt="Instagram" width={30} height={30} />
                   </a>
+                </div>
+
+                {/* Resume Download */}
+                <div className="pt-4 flex justify-center lg:justify-start">
+                   <a 
+                     href="/RESUME-DEGUZMAN,ADRIAN.pdf" 
+                     download="RESUME-DEGUZMAN,ADRIAN.pdf"
+                     className="flex items-center gap-3 px-6 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition-all hover:scale-105 active:scale-95"
+                   >
+                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                     </svg>
+                     Download CV
+                   </a>
                 </div>
              </div>
           </motion.div>
