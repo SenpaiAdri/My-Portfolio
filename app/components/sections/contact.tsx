@@ -58,7 +58,7 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="w-full grid grid-cols-1  gap-12 px-5 
+        <div className="w-full grid grid-cols-1 gap-6 md:gap-8 px-5 
         sm:px-20
         lg:grid-cols-2 lg:gap-20 items-start">
           {/* Form */}
@@ -128,7 +128,7 @@ const Contact = () => {
              className="flex flex-col gap-8"
           >
              <div className="space-y-6">
-                <h2 className="text-2xl font-semibold text-gray-200 text-center lg:text-left">Or connect with me</h2>
+                <h2 className="text-xl sm:text-2xl font-semibold text-gray-200 text-center lg:text-left">Or connect with me</h2>
                  <div className="flex flex-row flex-wrap justify-center lg:justify-start gap-4">
                   {/* Email */}
                   <a href="mailto:adrian31dg@gmail.com" className="flex items-center gap-4 hover:text-white transition-colors p-4 rounded-xl border border-[#333] hover:bg-[#1a1a1a]">

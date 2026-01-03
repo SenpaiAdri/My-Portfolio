@@ -23,7 +23,7 @@ export const projectsData: Project[] = [
     description:
       "A Location-tracking, Booking Manager and Quota Monitoring App for the Drivers and Conductors of Modernized Jeepneys",
     longDescription:
-      "The Pasada Driver App is a critical component of the Pasada ecosystem, designed to empower drivers and conductors of modernized jeepneys. It features real-time GPS tracking for fleet management, an intelligent booking system that connects drivers with passengers, and a quota monitoring tool to help drivers track their daily earnings and performance. Built with Flutter, it ensures a smooth, cross-platform experience on various Android devices commonly used in the field.",
+      "The Pasada Driver App is one of the core components of the Pasada ecosystem, designed for drivers and conductors of modernized jeepneys. It features real-time GPS tracking for fleet management, a booking managementsystem that connects drivers with passengers, and a quota monitoring tool to help drivers track their daily earnings and performance. Built with Flutter, it ensures a smooth, cross-platform experience on various Android devices.",
     techStack: ["Flutter", "Dart", "Supabase", "PostgreSQL", "Google Maps API", "Google Cloud Platform"],
     timeline: "2024 - 2025",
     imageColor: "bg-red-500",
@@ -54,7 +54,7 @@ export const projectsData: Project[] = [
     description:
       "An AI-Powered Blogging Channel for Latest Tech News and Updates",
     longDescription:
-      "AI Blog Post is an automated content generation platform that curates and summarizes the latest technology news. Leveraging generative AI, it scrapes reputable tech sources, processes the information, and produces engaging blog posts. This project showcases the integration of AI models with modern web frameworks to automate content creation pipelines.",
+      "AI Blog Post is an automated content generation platform that curates and summarizes the latest technology news. Leveraging generative AI, it collects reputable tech sources, processes the information, and produces engaging blog posts. This project showcases the integration of AI models with modern web frameworks to automate content creation pipelines.",
     techStack: ["Next.js", "TypeScript", "Google Gemini API", "Tailwind CSS"],
     timeline: "2025- Present",
     imageColor: "bg-blue-500",

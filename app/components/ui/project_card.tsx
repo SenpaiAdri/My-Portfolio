@@ -62,7 +62,7 @@ export const ProjectCard = ({
           <motion.div
             whileHover={{ scale: 1.02, backgroundColor: project.color }}
             whileTap={{ scale: 0.9 }}
-            className="w-fit py-2 px-4 bg-white/90 rounded-full backdrop-blur-xs text-black mt-3 mx-auto flex items-center justify-center transition-colors duration-300
+            className="w-fit py-2 px-5 bg-white/90 rounded-full backdrop-blur-xs text-black mt-3 mx-auto flex items-center justify-center transition-colors duration-300
             md:h-10 cursor-pointer group"
           >
             <h1

@@ -206,9 +206,9 @@ const Hero = () => {
           lg:w-auto lg:p-8"
           >
             <motion.a
-              className="text-xl pb-20 text-center whitespace-nowrap block
-              lg:text-3xl lg:text-left
-              xl:text-2xl xl:text-left xl:pb-5
+              className="text-xl pb-20 text-center whitespace-nowrap block self-end
+              lg:text-xl lg:text-left lg:pb-0
+              xl:text-2xl xl:text-left 
               hover:text-gray-500 cursor-pointer
               transition-colors duration-300"
               initial={{ opacity: 0, x: 200 }}

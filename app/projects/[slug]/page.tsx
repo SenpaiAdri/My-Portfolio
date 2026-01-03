@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
 import { projectsData } from "@/app/data/project";
@@ -53,7 +52,7 @@ const ProjectDetails = () => {
       </div>
 
       {/* Hero Header */}
-      <div className="relative w-full h-[60vh] flex items-center justify-center bg-gradient-to-b from-black/80 to-[#0a0a0a]">
+      <div className="relative w-full h-[60vh] px-1 flex items-center justify-center bg-gradient-to-b from-black/80 to-[#0a0a0a]">
         <div className="absolute inset-0 -z-10 overflow-hidden opacity-30">
            {/* Background gradient utilizing project color */}
            <div
@@ -68,7 +67,7 @@ const ProjectDetails = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="mb-8 relative w-24 h-24 md:w-32 md:h-32 rounded-3xl overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm p-4 border border-white/10"
+              className="mb-8 relative w-40 h-40 md:w-50 md:h-50 rounded-3xl overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm p-4 border border-white/10"
             >
               <Image
                 src={project.logo}
@@ -106,7 +105,8 @@ const ProjectDetails = () => {
                className="flex flex-wrap gap-3 justify-center mt-8"
              >
                {project.techStack.map((tech) => (
-                 <span key={tech} className="px-4 py-2 rounded-full bg-white/10 border border-white/10 text-sm font-medium backdrop-blur-sm">
+                 <span key={tech} className="px-5 py-2 rounded-full bg-white/10 border border-white/10 text-sm font-medium backdrop-blur-sm
+                 hover:bg-gray-500 transition-colors duration-300">
                    {tech}
                  </span>
                ))}
@@ -116,13 +116,13 @@ const ProjectDetails = () => {
       </div>
 
       {/* Content Section */}
-      <div className="max-w-7xl mx-auto px-5 py-20 flex flex-col gap-20">
+      <div className="max-w-7xl mx-auto px-6 py-20 flex flex-col gap-20">
         {/* Overview */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-10"
+          className="grid grid-cols-1 md:grid-cols-3 gap-10 sm:px-10"
         >
           <div className="md:col-span-2 space-y-6">
             <h2 className="text-3xl font-bold border-l-4 border-[var(--project-color)] pl-4" style={{ borderColor: project.color }}>Overview</h2>
@@ -161,9 +161,9 @@ const ProjectDetails = () => {
 
         {/* Gallery */}
         {project.images && project.images.length > 0 && (
-          <div className="space-y-10">
+          <div className="space-y-10 px-3 sm:px-10">
             <h2 className="text-3xl font-bold text-center">Project Gallery</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
               {project.images.map((img, index) => (
                 <motion.div
                   key={index}
@@ -171,7 +171,7 @@ const ProjectDetails = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="relative group aspect-video md:aspect-[9/16] lg:aspect-video rounded-2xl overflow-hidden border border-[#333] bg-[#111] cursor-pointer"
+                  className="relative group aspect-[9/16] rounded-3xl overflow-hidden border border-[#121212] cursor-pointer"
                 >
                   <Image
                     src={img}
