@@ -167,9 +167,7 @@ const Hero = () => {
                 lg:text-xl lg:text-left
                 xl:text-2xl xl:text-left"
             >
-              An AI-Powered Ride-Hailing and Fleet Management Platform for
-              <br className="hidden xl:block" />
-              Modernized Jeepneys Services
+              An AI-Powered Ride-Hailing and Fleet Management Platform <br className="hidden lg:block" /> for Modernized Jeepneys Services
             </p>
           </motion.div>
           {/* Skills */}
