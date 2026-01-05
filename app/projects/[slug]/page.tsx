@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
 import { projectsData } from "@/app/data/project";
 import { motion } from "motion/react";
+import DomeGallery from "@/app/components/ui/dome_gallery";
 
 const ProjectDetails = () => {
   const params = useParams();
@@ -160,7 +161,27 @@ const ProjectDetails = () => {
         </motion.div>
 
         {/* Gallery */}
-        {project.images && project.images.length > 0 && (
+        <h2 className="text-3xl font-bold text-center">Project Gallery</h2>
+
+        <div className="relative w-[1300px] h-200 md:h-230 px-0 flex self-center justify-center items-center overflow-hidden">
+          <DomeGallery
+          images={project.images}
+          fit={.1}
+          minRadius={900}
+          maxRadius={1000}
+          maxVerticalRotationDeg={4}
+          dragDampening={0}
+          segments={34}
+          grayscale={false}
+          overlayBlurColor="transparent"
+          openedImageHeight="fit-content"
+          imageBorderRadius="20px"
+          fitBasis="height"
+          padFactor={.5}
+          />
+        </div>
+
+        {/* {project.images && project.images.length > 0 && (
           <div className="space-y-10 px-3 sm:px-10">
             <h2 className="text-3xl font-bold text-center">Project Gallery</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -183,7 +204,7 @@ const ProjectDetails = () => {
               ))}
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );
