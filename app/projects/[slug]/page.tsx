@@ -219,10 +219,12 @@ const ProjectDetails = () => {
         </motion.div>
 
         {/* Gallery */}
-        <h2 className="text-3xl font-bold text-center">Project Gallery</h2>
+        {project.images && project.images.length > 0 && (
+        <div>
+          <h2 className="text-3xl font-bold text-center mb-10">Project Gallery</h2>
 
-        <div className="relative w-full max-w-[2000px] h-[400px] mb-20 flex self-center justify-center items-center
-        sm:h-[650px] md:h-[700px] lg:h-[900px] overflow-hidden">
+          <div className="relative w-full max-w-[2000px] h-[400px] mb-20 flex self-center justify-center items-center
+          sm:h-[650px] md:h-[700px] lg:h-[900px] overflow-hidden">
           <DomeGallery
             images={project.images}
             fit={galleryConfig.fit}
@@ -237,8 +239,10 @@ const ProjectDetails = () => {
             openedImageHeight="fit-content"
             imageBorderRadius="20px"
             fitBasis="height"
-          />
+            />
+          </div>
         </div>
+        )}
 
         {/* {project.images && project.images.length > 0 && (
           <div className="space-y-10 px-3 sm:px-10">

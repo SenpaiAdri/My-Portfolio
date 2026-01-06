@@ -28,7 +28,7 @@ export const projectsData: Project[] = [
     timeline: "2024 - 2025",
     imageColor: "bg-red-500",
     logo: "/project_logo/pasada_driver_logo.svg",
-    color: "#ef4444", // red-500
+    color: "#00CC58", // green
     align: "right",
     images: [
       "/pasada_driver_screenshots/pasada_driver_activity_page_view.jpg",
@@ -58,9 +58,9 @@ export const projectsData: Project[] = [
       "AI Blog Post is an automated content generation platform that curates and summarizes the latest technology news. Leveraging generative AI, it collects reputable tech sources, processes the information, and produces engaging blog posts. This project showcases the integration of AI models with modern web frameworks to automate content creation pipelines.",
     techStack: ["Next.js", "TypeScript", "Google Gemini API", "Tailwind CSS"],
     timeline: "2025- Present",
-    imageColor: "bg-blue-500",
+    imageColor: "bg-red-500",
     logo: "/project_logo/ai_blogpost_logo.svg",
-    color: "#3b82f6", // blue-500
+    color: "#ff0000", // red-500
     align: "left",
     link: "",
   },
