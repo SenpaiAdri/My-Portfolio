@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 import { projectsData } from "@/app/data/project";
 import { motion } from "motion/react";
 import DomeGallery from "@/app/components/ui/dome_gallery";
@@ -9,6 +10,60 @@ const ProjectDetails = () => {
   const params = useParams();
   const router = useRouter();
   const { slug } = params;
+
+  const [galleryConfig, setGalleryConfig] = useState({
+    fit: 0.1,
+    minRadius: 900,
+    maxRadius: 1000,
+    maxVerticalRotationDeg: 4,
+    dragDampening: 0,
+    segments: 34,
+    padFactor: 0.5,
+  });
+
+  useEffect(() => {
+    const updateConfig = () => {
+      const width = window.innerWidth;
+      if (width < 640) {
+        // Small devices (Mobile)
+        setGalleryConfig({
+          fit: 0.2,
+          minRadius: 400,
+          maxRadius: 600,
+          maxVerticalRotationDeg: 10,
+          dragDampening: 5,
+          segments: 22,
+          padFactor: 0.1,
+        });
+      } else if (width < 1024) {
+        // Medium devices (Tablet)
+        setGalleryConfig({
+          fit: 0.15,
+          minRadius: 600,
+          maxRadius: 800,
+          maxVerticalRotationDeg: 3,
+          dragDampening: 5,
+          segments: 28,
+          padFactor: 0.5,
+        });
+      } else {
+        // Large devices (Desktop)
+        setGalleryConfig({
+          fit: 0.1,
+          minRadius: 900,
+          maxRadius: 1000,
+          maxVerticalRotationDeg: 4,
+          dragDampening: 5,
+          segments: 34,
+          padFactor: 0.5,
+        });
+      }
+    };
+
+    updateConfig();
+    window.addEventListener("resize", updateConfig);
+    return () => window.removeEventListener("resize", updateConfig);
+  }, []);
 
   const project = projectsData.find((p) => p.slug === slug);
 
@@ -117,13 +172,13 @@ const ProjectDetails = () => {
       </div>
 
       {/* Content Section */}
-      <div className="max-w-7xl mx-auto px-6 py-20 flex flex-col gap-20">
+      <div className="max-w-7xl mx-auto py-20 flex flex-col gap-20">
         {/* Overview */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-10 sm:px-10"
+          className="grid grid-cols-1 md:grid-cols-3 gap-10 px-6 sm:px-10"
         >
           <div className="md:col-span-2 space-y-6">
             <h2 className="text-3xl font-bold border-l-4 border-[var(--project-color)] pl-4" style={{ borderColor: project.color }}>Overview</h2>
@@ -144,18 +199,21 @@ const ProjectDetails = () => {
                    <p className="font-medium text-lg">{project.timeline}</p>
                 </div>
                 {/* Links */}
-                <div className="pt-4 flex flex-col gap-3">
-                   {project.link && (
-                     <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-white text-black py-3 rounded-xl font-bold hover:bg-gray-200 transition-colors">
-                       View Live Demo ↗
-                     </a>
-                   )}
-                   {project.github && (
-                     <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-[#222] text-white border border-[#444] py-3 rounded-xl font-bold hover:bg-[#333] transition-colors">
-                       GitHub Repo ↗
-                     </a>
-                   )}
-                </div>
+                {project.link || project.github && (
+                  <div className="pt-4 flex flex-col gap-3">
+                    {project.link && (
+                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-white text-black py-3 rounded-xl font-bold hover:bg-gray-200 transition-colors">
+                        View Live Demo ↗
+                      </a>
+                    )}
+                    {project.github && (
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-[#222] text-white border border-[#444] py-3 rounded-xl font-bold hover:bg-[#333] transition-colors">
+                        <Image src="/contact_icons/github/github-mark-white.svg" alt="GitHub" width={20} height={20} className="mr-2" />
+                        GitHub Repo ↗
+                      </a>
+                    )}
+                  </div>
+                )}
              </div>
           </div>
         </motion.div>
@@ -163,21 +221,22 @@ const ProjectDetails = () => {
         {/* Gallery */}
         <h2 className="text-3xl font-bold text-center">Project Gallery</h2>
 
-        <div className="relative w-[1300px] h-200 md:h-230 px-0 flex self-center justify-center items-center overflow-hidden">
+        <div className="relative w-full max-w-[2000px] h-[400px] mb-20 flex self-center justify-center items-center
+        sm:h-[650px] md:h-[700px] lg:h-[900px] overflow-hidden">
           <DomeGallery
-          images={project.images}
-          fit={.1}
-          minRadius={900}
-          maxRadius={1000}
-          maxVerticalRotationDeg={4}
-          dragDampening={0}
-          segments={34}
-          grayscale={false}
-          overlayBlurColor="transparent"
-          openedImageHeight="fit-content"
-          imageBorderRadius="20px"
-          fitBasis="height"
-          padFactor={.5}
+            images={project.images}
+            fit={galleryConfig.fit}
+            minRadius={galleryConfig.minRadius}
+            maxRadius={galleryConfig.maxRadius}
+            maxVerticalRotationDeg={galleryConfig.maxVerticalRotationDeg}
+            dragDampening={galleryConfig.dragDampening}
+            segments={galleryConfig.segments}
+            padFactor={galleryConfig.padFactor}
+            grayscale={false}
+            overlayBlurColor="#0a0a0a"
+            openedImageHeight="fit-content"
+            imageBorderRadius="20px"
+            fitBasis="height"
           />
         </div>
 
