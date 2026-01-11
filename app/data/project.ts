@@ -63,6 +63,12 @@ export const projectsData: Project[] = [
     color: "#ff0000", // red-500
     align: "left",
     link: "",
+    images: [
+      "/ai_blogpost_screenshots/ai_blogpost_home_page.png",
+      "/ai_blogpost_screenshots/ai_blogpost_full_blog.png",
+      "/ai_blogpost_screenshots/ai_blogpost_mobile_home.jpg",
+      "/ai_blogpost_screenshots/ai_blogpost_mobile_full_blog.jpg",
+    ],
   },
   // {
   //   id: 3,

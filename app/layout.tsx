@@ -13,8 +13,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Home",
-  description: "Portfolio created by Adrian",
+  title: "Eydriannn",
+  description: "Personal website of Adrian",
+  icons: {
+    icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: "Eydriannn",
+    description: "Personal website of Adrian",
+    images: [
+      { url: "/favicon.ico" },
+    ],
+  },
 };
 
 import SmoothScroll from "./components/smooth-scroll";

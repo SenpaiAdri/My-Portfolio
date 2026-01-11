@@ -123,7 +123,7 @@ const ProjectDetails = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="mb-8 relative w-40 h-40 md:w-50 md:h-50 rounded-3xl overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm p-4 border border-white/10"
+              className="mb-8 relative w-40 h-40 md:w-50 md:h-50 rounded-4xl overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm p-4 border border-white/10"
             >
               <Image
                 src={project.logo}
