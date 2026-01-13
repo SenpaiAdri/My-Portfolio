@@ -47,7 +47,7 @@ export const skills = [
     {
         type: "Mobile",
         list: ["Flutter",
-            "Java",],
+            "Android Studio",],
         image: [
             "/skills/mobile/flutter.svg",
             "/skills/mobile/androidstudio.svg",],

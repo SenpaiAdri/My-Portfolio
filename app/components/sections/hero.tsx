@@ -44,7 +44,7 @@ const Hero = () => {
         >
           {/* Quote */}
           <motion.div
-            className="hidden border dark:border-[#6A6B70] rounded-3xl backdrop-blur-xs 
+            className="hidden border dark:border-[#6A6B70] border-[#C6C6C9] rounded-3xl backdrop-blur-xs 
               w-full px-6 py-10
               lg:block lg:w-auto lg:p-8
               xl:w-auto xl:p-8
@@ -61,13 +61,12 @@ const Hero = () => {
                 lg:text-xl lg:text-right
                 xl:text-2xl xl:text-right"
             >
-              &quot;Building Practical Solutions for a<br />
-              Better Future&quot;
+              Currently looking for an Internship
             </h1>
           </motion.div>
           {/* Name and Description */}
           <motion.div
-            className="border border-[#6A6B70] rounded-3xl backdrop-blur-xs
+            className="border dark:border-[#6A6B70] border-[#C6C6C9] rounded-3xl backdrop-blur-xs
               w-full px-6 py-10 text-center 
               lg:w-auto lg:p-8 lg:text-right 
               xl:w-auto xl:p-8 xl:text-right
@@ -139,7 +138,7 @@ const Hero = () => {
         >
           {/* Achievements */}
           <motion.div
-            className="border dark:border-[#6A6B70] rounded-3xl backdrop-blur-xs
+            className="border dark:border-[#6A6B70] border-[#C6C6C9] rounded-3xl backdrop-blur-xs
               w-full p-6 
               lg:w-110 lg:p-8 lg:text-left
               xl:w-auto xl:p-8
@@ -171,7 +170,7 @@ const Hero = () => {
           </motion.div>
           {/* Skills */}
           <motion.div
-            className="hidden border dark:border-[#6A6B70] rounded-3xl backdrop-blur-xs
+            className="hidden border dark:border-[#6A6B70] border-[#C6C6C9] rounded-3xl backdrop-blur-xs
             w-full p-6 text-center 
             lg:block lg:w-auto lg:p-8 lg:text-left
             xl:w-auto xl:p-8 xl:text-left
