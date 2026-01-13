@@ -26,7 +26,7 @@ const Projects = () => {
     <div
       id="projects"
       ref={containerRef}
-      className="bg-black relative w-full"
+      className="bg-white dark:bg-black relative w-full"
       style={{ height: containerHeight }}
     >
       <Meteors number={200} />
@@ -36,7 +36,7 @@ const Projects = () => {
           style={{ opacity: titleOpacity }}
           className="absolute top-15 md:top-20 z-10"
         >
-          <h2 className="text-3xl font-bold text-center md:text-5xl lg:text-5xl text-white">
+          <h2 className="text-3xl font-bold text-center md:text-5xl lg:text-5xl text-black dark:text-white">
             Projects
           </h2>
         </motion.div>
@@ -93,7 +93,7 @@ const Projects = () => {
                   style={{ opacity }}
                   className="absolute inset-0 z-0 flex flex-col justify-center pointer-events-none"
                 >
-                  <div className="absolute inset-0 bg-black/10 z-10" />
+                  <div className="absolute inset-0 bg-white/10 dark:bg-black/10 z-10" />
                   <Marquee
                     reverse
                     className="[--duration:30s] [--gap:1rem] flex-1 opacity-40 rotate-350 [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]"

@@ -5,11 +5,13 @@ import { useState, useEffect } from "react";
 import { projectsData } from "@/app/data/project";
 import { motion } from "motion/react";
 import DomeGallery from "@/app/components/ui/dome_gallery";
+import { useTheme } from "next-themes";
 
 const ProjectDetails = () => {
   const params = useParams();
   const router = useRouter();
   const { slug } = params;
+  const { resolvedTheme } = useTheme();
 
   const [galleryConfig, setGalleryConfig] = useState({
     fit: 0.1,
@@ -82,12 +84,12 @@ const ProjectDetails = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden">
+    <div className="min-h-screen bg-white dark:bg-[#0a0a0a] text-neutral-900 dark:text-white overflow-x-hidden">
       {/* Back Button */}
       <div className="absolute top-8 left-8 z-50">
         <button
           onClick={() => router.back()}
-          className="flex items-center gap-2 px-4 py-2 bg-black/50 backdrop-blur-md border border-white/20 rounded-full hover:bg-white/10 transition-colors"
+          className="flex items-center gap-2 px-4 py-2 bg-neutral-100/50 dark:bg-black/50 backdrop-blur-md border border-black/20 dark:border-white/20 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +110,7 @@ const ProjectDetails = () => {
       </div>
 
       {/* Hero Header */}
-      <div className="relative w-full h-[60vh] px-1 flex items-center justify-center bg-gradient-to-b from-black/80 to-[#0a0a0a]">
+      <div className="relative w-full h-[60vh] px-1 flex items-center justify-center bg-gradient-to-b from-[#C6C6C9] to-white dark:from-black/80 dark:to-[#0a0a0a]">
         <div className="absolute inset-0 -z-10 overflow-hidden opacity-30">
            {/* Background gradient utilizing project color */}
            <div
@@ -123,7 +125,7 @@ const ProjectDetails = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="mb-8 relative w-40 h-40 md:w-50 md:h-50 rounded-4xl overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm p-4 border border-white/10"
+              className="mb-8 relative w-40 h-40 md:w-50 md:h-50 rounded-4xl overflow-hidden shadow-2xl bg-black/5 dark:bg-white/5 backdrop-blur-sm p-4 border border-black/10 dark:border-white/10"
             >
               <Image
                 src={project.logo}
@@ -147,7 +149,7 @@ const ProjectDetails = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-             className="text-xl md:text-2xl text-gray-300 max-w-2xl"
+             className="text-xl md:text-2xl text-neutral-600 dark:text-gray-300 max-w-2xl"
           >
             {project.description}
           </motion.p>
@@ -161,8 +163,8 @@ const ProjectDetails = () => {
                className="flex flex-wrap gap-3 justify-center mt-8"
              >
                {project.techStack.map((tech) => (
-                 <span key={tech} className="px-5 py-2 rounded-full bg-white/10 border border-white/10 text-sm font-medium backdrop-blur-sm
-                 hover:bg-gray-500 transition-colors duration-300">
+                 <span key={tech} className="px-5 py-2 rounded-full bg-black/5 dark:bg-white/10 border border-black/5 dark:border-white/10 text-sm font-medium backdrop-blur-sm
+                 hover:bg-neutral-200 dark:hover:bg-gray-500 transition-colors duration-300">
                    {tech}
                  </span>
                ))}
@@ -182,32 +184,32 @@ const ProjectDetails = () => {
         >
           <div className="md:col-span-2 space-y-6">
             <h2 className="text-3xl font-bold border-l-4 border-[var(--project-color)] pl-4" style={{ borderColor: project.color }}>Overview</h2>
-            <p className="text-gray-300 text-lg leading-relaxed">
+            <p className="text-neutral-600 dark:text-gray-300 text-lg leading-relaxed">
               {project.longDescription || project.description}
             </p>
           </div>
           
           <div className="space-y-6">
              <h2 className="text-2xl font-bold">Project Info</h2>
-             <div className="bg-[#111] p-6 rounded-2xl border border-[#333] space-y-4">
+             <div className="bg-neutral-50 dark:bg-[#111] p-6 rounded-2xl border border-neutral-200 dark:border-[#333] space-y-4">
                 <div>
-                   <h3 className="text-gray-400 text-sm uppercase tracking-wider mb-1">Role</h3>
+                   <h3 className="text-neutral-500 dark:text-gray-400 text-sm uppercase tracking-wider mb-1">Role</h3>
                    <p className="font-medium text-lg">Developer</p>
                 </div>
                 <div>
-                   <h3 className="text-gray-400 text-sm uppercase tracking-wider mb-1">Timeline</h3>
+                   <h3 className="text-neutral-500 dark:text-gray-400 text-sm uppercase tracking-wider mb-1">Timeline</h3>
                    <p className="font-medium text-lg">{project.timeline}</p>
                 </div>
                 {/* Links */}
                 {project.link || project.github && (
                   <div className="pt-4 flex flex-col gap-3">
                     {project.link && (
-                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-white text-black py-3 rounded-xl font-bold hover:bg-gray-200 transition-colors">
+                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-neutral-900 text-white dark:bg-white dark:text-black py-3 rounded-xl font-bold hover:bg-neutral-800 dark:hover:bg-gray-200 transition-colors">
                         View Live Demo ↗
                       </a>
                     )}
                     {project.github && (
-                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-[#222] text-white border border-[#444] py-3 rounded-xl font-bold hover:bg-[#333] transition-colors">
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-white text-black dark:bg-[#222] dark:text-white border border-neutral-200 dark:border-[#444] py-3 rounded-xl font-bold hover:bg-neutral-100 dark:hover:bg-[#333] transition-colors">
                         <Image src="/contact_icons/github/github-mark-white.svg" alt="GitHub" width={20} height={20} className="mr-2" />
                         GitHub Repo ↗
                       </a>
@@ -235,7 +237,7 @@ const ProjectDetails = () => {
             segments={galleryConfig.segments}
             padFactor={galleryConfig.padFactor}
             grayscale={false}
-            overlayBlurColor="#0a0a0a"
+            overlayBlurColor={resolvedTheme === "light" ? "#ffffff" : "#0a0a0a"}
             openedImageHeight="fit-content"
             imageBorderRadius="20px"
             fitBasis="height"

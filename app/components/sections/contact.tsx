@@ -38,7 +38,7 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact" className="relative w-full bg-black text-white py-20 px-5 md:px-10 overflow-hidden">
+    <div id="contact" className="relative w-full bg-gradient-to-b from-[#E8E8E8] to-white dark:from-[#0a0a0a] dark:to-black text-neutral-900 dark:text-white py-20 px-5 md:px-10 overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         {/* Header */}
         <motion.div
@@ -52,7 +52,7 @@ const Contact = () => {
           <h1 className="text-3xl font-bold md:text-5xl mb-6">
             Get in touch
           </h1>
-          <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
+          <p className="text-neutral-600 dark:text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
             I&apos;m currently looking for internship and project collaborations. Feel
             free to contact me through the form below or via my socials.
           </p>
@@ -67,45 +67,46 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="p-8 rounded-3xl border border-[#333]"
+            className="p-8 rounded-3xl border border-[#C6C6C9] dark:border-[#333]"
           >
             <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-6 ">
               <div className="flex flex-col gap-2">
-                <label className="text-sm text-gray-400 font-medium ml-1">Your Name</label>
+                <label className="text-sm text-neutral-600 dark:text-gray-400 font-medium ml-1">Your Name</label>
                 <input
                   type="text"
                   name="user_name"
                   required
                   placeholder="Juan Dela Cruz"
-                  className="w-full p-4 rounded-xl bg-[#0a0a0a] border border-[#333] text-white focus:outline-none focus:border-white transition-colors"
+                  className="w-full p-4 rounded-xl bg-white dark:bg-[#0a0a0a] border border-[#C6C6C9] dark:border-[#333] text-neutral-900 dark:text-white focus:outline-none focus:border-neutral-900 dark:focus:border-white transition-colors"
                 />
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="text-sm text-gray-400 font-medium ml-1">Your Email</label>
+                <label className="text-sm text-neutral-600 dark:text-gray-400 font-medium ml-1">Your Email</label>
                 <input
                   type="email"
                   name="user_email"
                   required
                   placeholder="juan@example.com"
-                  className="w-full p-4 rounded-xl bg-[#0a0a0a] border border-[#333] text-white focus:outline-none focus:border-white transition-colors"
+                  className="w-full p-4 rounded-xl bg-white dark:bg-[#0a0a0a] border border-[#C6C6C9] dark:border-[#333] text-neutral-900 dark:text-white focus:outline-none focus:border-neutral-900 dark:focus:border-white transition-colors"
                 />
               </div>
 
               <div className="flex flex-col gap-2">
-                 <label className="text-sm text-gray-400 font-medium ml-1">Message</label>
+                 <label className="text-sm text-neutral-600 dark:text-gray-400 font-medium ml-1">Message</label>
                 <textarea
                   name="message"
                   required
                   placeholder="Hi, I'd like to discuss..."
-                  className="w-full h-40 p-4 rounded-xl bg-[#0a0a0a] border border-[#333] text-white focus:outline-none focus:border-white transition-colors resize-none"
+                  className="w-full h-40 p-4 rounded-xl bg-white dark:bg-[#0a0a0a] border border-[#C6C6C9] dark:border-[#333] text-neutral-900 dark:text-white focus:outline-none focus:border-neutral-900 dark:focus:border-white transition-colors resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-2 bg-white text-black font-bold py-4 px-8 rounded-xl hover:bg-gray-300 hover:scale-101 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="mt-2 bg-[#E8E8E8] text-black dark:bg-white dark:text-black font-bold py-4 px-8 rounded-xl hover:bg-gray-300 dark:hover:bg-gray-300 hover:scale-101 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed
+                border-[#C6C6C9] border-1"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
@@ -128,27 +129,27 @@ const Contact = () => {
              className="flex flex-col gap-8"
           >
              <div className="space-y-6">
-                <h2 className="text-xl sm:text-2xl font-semibold text-gray-200 text-center lg:text-left">Or connect with me</h2>
+                <h2 className="text-xl sm:text-2xl font-semibold text-neutral-700 dark:text-gray-200 text-center lg:text-left">Or connect with me</h2>
                  <div className="flex flex-row flex-wrap justify-center lg:justify-start gap-4">
                   {/* Email */}
-                  <a href="mailto:adrian31dg@gmail.com" className="flex items-center gap-4 hover:text-white transition-colors p-4 rounded-xl border border-[#333] hover:bg-[#1a1a1a]">
-                    <Image src="/contact_icons/gmail/gmail-white.png" alt="Email" width={30} height={30} />
+                  <a href="mailto:adrian31dg@gmail.com" className="flex items-center gap-4 hover:text-white transition-colors p-4 rounded-xl border border-[#C6C6C9] dark:border-[#333] hover:bg-neutral-100 dark:hover:bg-[#1a1a1a]">
+                    <Image src="/contact_icons/gmail/gmail-white.png" alt="Email" width={30} height={30} className="invert dark:invert-0" />
                   </a>
                   {/* LinkedIn */}
-                  <a href="https://www.linkedin.com/in/eydriannn/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-white transition-colors p-4 rounded-xl border border-[#333] hover:bg-[#1a1a1a]">
-                    <Image src="/contact_icons/linkedin/InBug-White.png" alt="LinkedIn" width={30} height={30} />
+                  <a href="https://www.linkedin.com/in/eydriannn/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-white transition-colors p-4 rounded-xl border border-[#C6C6C9] dark:border-[#333] hover:bg-neutral-100 dark:hover:bg-[#1a1a1a]">
+                    <Image src="/contact_icons/linkedin/InBug-White.png" alt="LinkedIn" width={30} height={30} className="invert dark:invert-0" />
                   </a>
                   {/* GitHub */}
-                  <a href="https://github.com/SenpaiAdri" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-white transition-colors p-4 rounded-xl border border-[#333] hover:bg-[#1a1a1a]">
-                     <Image src="/contact_icons/github/github-mark-white.svg" alt="GitHub" width={30} height={30} />
+                  <a href="https://github.com/SenpaiAdri" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-white transition-colors p-4 rounded-xl border border-[#C6C6C9] dark:border-[#333] hover:bg-neutral-100 dark:hover:bg-[#1a1a1a]">
+                     <Image src="/contact_icons/github/github-mark-white.svg" alt="GitHub" width={30} height={30} className="invert dark:invert-0" />
                   </a>
                   {/* Facebook */}
-                  <a href="https://www.facebook.com/eydriannnnnn/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-white transition-colors p-4 rounded-xl border border-[#333] hover:bg-[#1a1a1a]">
-                    <Image src="/contact_icons/facebook/Facebook_Logo_Secondary.png" alt="Facebook" width={30} height={30} />
+                  <a href="https://www.facebook.com/eydriannnnnn/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-white transition-colors p-4 rounded-xl border border-[#C6C6C9] dark:border-[#333] hover:bg-neutral-100 dark:hover:bg-[#1a1a1a]">
+                    <Image src="/contact_icons/facebook/Facebook_Logo_Secondary.png" alt="Facebook" width={30} height={30} className="invert dark:invert-0" />
                   </a>
                   {/* Instagram */}
-                  <a href="https://www.instagram.com/eydriannn/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-white transition-colors p-4 rounded-xl border border-[#333] hover:bg-[#1a1a1a]">
-                    <Image src="/contact_icons/instagram/Instagram_Glyph_White.svg" alt="Instagram" width={30} height={30} />
+                  <a href="https://www.instagram.com/eydriannn/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-white transition-colors p-4 rounded-xl border border-[#C6C6C9] dark:border-[#333] hover:bg-neutral-100 dark:hover:bg-[#1a1a1a]">
+                    <Image src="/contact_icons/instagram/Instagram_Glyph_White.svg" alt="Instagram" width={30} height={30} className="invert dark:invert-0" />
                   </a>
                 </div>
 
@@ -157,7 +158,8 @@ const Contact = () => {
                    <a 
                      href="/RESUME-DEGUZMAN,ADRIAN.pdf" 
                      download="RESUME-DEGUZMAN,ADRIAN.pdf"
-                     className="flex items-center gap-3 px-6 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition-all hover:scale-105 active:scale-95"
+                     className="flex items-center gap-3 px-6 py-3 bg-[#E8E8E8] dark:bg-white dark:text-black font-bold rounded-full hover:bg-gray-300 dark:hover:bg-gray-200 transition-all hover:scale-105 active:scale-95
+                     border-[#C6C6C9] border-1"
                    >
                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>

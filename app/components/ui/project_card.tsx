@@ -50,20 +50,25 @@ export const ProjectCard = ({
             : "md:items-start md:text-left"
         )}
       >
-        <h3 className="text-xl font-bold md:text-3xl lg:text-4xl text-white">
+        <h3 className="text-xl font-bold md:text-3xl lg:text-4xl dark:text-white">
           {project.title}
         </h3>
-        <p className="text-sm italic text-gray-300 mt-2 md:text-lg">
+        <p className="text-sm italic dark:text-gray-300 mt-2 md:text-lg backdrop-blur-lg px-1">
           {project.description}
         </p>
 
         {/* Learn More Button */}
         <Link href={project.slug ? `/projects/${project.slug}` : "#"}>
           <motion.div
-            whileHover={{ scale: 1.02, backgroundColor: project.color }}
+            style={
+              {
+                "--hover-bg": project.color,
+              } as React.CSSProperties
+            }
+            whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.9 }}
-            className="w-fit py-2 px-5 bg-white/90 rounded-full backdrop-blur-xs text-black mt-3 mx-auto flex items-center justify-center transition-colors duration-300
-            md:h-10 cursor-pointer group"
+            className="w-fit py-2 px-5 dark:bg-[#26262C] bg-[#E8E8E8] rounded-full backdrop-blur-xs text-black dark:text-white mt-3 mx-auto flex items-center justify-center transition-colors duration-300
+            md:h-10 cursor-pointer group hover:bg-[var(--hover-bg)]"
           >
             <h1
               className="group-hover:text-white transition-colors duration-300 text-center text-xs font-bold 

@@ -25,9 +25,8 @@ const Hero = () => {
 
   return (
     <div
-      // Attach the ref here so useScroll knows which element to measure
       ref={containerRef}
-      className="bg-black relative w-full min-h-screen pt-10 pb-0 px-5 flex flex-col justify-between overflow-hidden
+      className="bg-white dark:bg-black relative w-full min-h-screen pt-10 pb-0 px-5 flex flex-col justify-between overflow-hidden
       md:px-30
       lg:pb-0 lg:pt-0 lg:px-0
       xl:pb-0 xl:pt-0 xl:px-0"
@@ -45,11 +44,11 @@ const Hero = () => {
         >
           {/* Quote */}
           <motion.div
-            className="hidden border border-[#6A6B70] rounded-3xl backdrop-blur-xs 
+            className="hidden border dark:border-[#6A6B70] rounded-3xl backdrop-blur-xs 
               w-full px-6 py-10
               lg:block lg:w-auto lg:p-8
               xl:w-auto xl:p-8
-              hover:bg-[#393A41]/25 cursor-pointer
+              hover:bg-[#393A41]/10 dark:hover:bg-[#393A41]/25 cursor-pointer
               transition-colors duration-300"
             initial={{ opacity: 0, y: -200 }}
             animate={{ opacity: 1, y: 0 }}
@@ -72,7 +71,8 @@ const Hero = () => {
               w-full px-6 py-10 text-center 
               lg:w-auto lg:p-8 lg:text-right 
               xl:w-auto xl:p-8 xl:text-right
-              hover:bg-[#393A41]/25 cursor-pointer
+              hover:bg-[#393A41]/10 cursor-pointer
+              dark:hover:bg-[#393A41]/25
               transition-colors duration-300"
             initial={{ opacity: 0, x: 200 }}
             animate={{ opacity: 1, x: 0 }}
@@ -87,8 +87,7 @@ const Hero = () => {
               I&apos;m Adrian M. De Guzman
             </h1>
             <p
-              className="text-gray-200 italic 
-                text-base 
+              className="dark:text-gray-200 italic text-base 
                 xl:text-2xl"
             >
               A Computer Science Student Specialized{" "}
@@ -140,11 +139,11 @@ const Hero = () => {
         >
           {/* Achievements */}
           <motion.div
-            className="border border-[#6A6B70] rounded-3xl backdrop-blur-xs
+            className="border dark:border-[#6A6B70] rounded-3xl backdrop-blur-xs
               w-full p-6 
               lg:w-110 lg:p-8 lg:text-left
               xl:w-auto xl:p-8
-              hover:bg-[#393A41]/25 cursor-pointer
+              hover:bg-[#393A41]/10 dark:hover:bg-[#393A41]/25 cursor-pointer
               transition-colors duration-300"
             initial={{ opacity: 0, x: -200 }}
             animate={{ opacity: 1, x: 0 }}
@@ -162,7 +161,7 @@ const Hero = () => {
               of Pasada
             </h1>
             <p
-              className="text-gray-200 italic 
+              className="dark:text-gray-200 italic 
                 text-base text-center 
                 lg:text-xl lg:text-left
                 xl:text-2xl xl:text-left"
@@ -172,11 +171,12 @@ const Hero = () => {
           </motion.div>
           {/* Skills */}
           <motion.div
-            className="hidden border border-[#6A6B70] rounded-3xl backdrop-blur-xs
+            className="hidden border dark:border-[#6A6B70] rounded-3xl backdrop-blur-xs
             w-full p-6 text-center 
             lg:block lg:w-auto lg:p-8 lg:text-left
             xl:w-auto xl:p-8 xl:text-left
-            hover:bg-[#393A41]/25 cursor-pointer
+            hover:dark:hover:bg-[#393A41]/25 cursor-pointer
+            hover:bg-[#393A41]/10 
             transition-colors duration-300"
             initial={{ opacity: 0, y: 200 }}
             animate={{ opacity: 1, y: 0 }}
@@ -192,7 +192,7 @@ const Hero = () => {
               Skills
             </h1>
             <p
-              className="text-gray-300 
+              className="dark:text-gray-300 
                 text-xl 
                 xl:text-2xl"
             >
@@ -209,7 +209,7 @@ const Hero = () => {
               className="text-xl pb-20 text-center whitespace-nowrap block self-end
               lg:text-xl lg:text-left lg:pb-0
               xl:text-2xl xl:text-left 
-              hover:text-gray-500 cursor-pointer
+              hover:text-gray-500 dark:hover:text-gray-500 cursor-pointer
               transition-colors duration-300"
               initial={{ opacity: 0, x: 200 }}
               animate={{ opacity: 1, x: 0 }}
