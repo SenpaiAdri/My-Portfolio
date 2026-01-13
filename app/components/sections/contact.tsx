@@ -4,6 +4,7 @@ import emailjs from "@emailjs/browser";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { Download } from "lucide-react";
+import { contact } from "@/app/data/contact";
 
 const Contact = () => {
   const form = useRef<HTMLFormElement>(null);
@@ -106,8 +107,9 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-2 bg-white text-black font-bold py-4 px-8 rounded-xl hover:bg-gray-300 hover:scale-101 transition-all 
+                className="mt-2 bg-white text-black font-bold py-2 rounded-xl hover:bg-gray-300 hover:scale-101 transition-all 
                 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed
+                sm:py-4
                 border-[#C6C6C9] border-1"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
@@ -133,26 +135,11 @@ const Contact = () => {
              <div className="space-y-6">
                 <h2 className="text-xl sm:text-2xl font-semibold text-neutral-700 dark:text-gray-200 text-center lg:text-left">Or connect with me</h2>
                  <div className="flex flex-row flex-wrap justify-center lg:justify-start gap-4">
-                  {/* Email */}
-                  <a href="mailto:adrian31dg@gmail.com" className="flex items-center gap-4 hover:text-white transition-colors p-4 rounded-xl border border-[#C6C6C9] dark:border-[#333] hover:bg-neutral-100 dark:hover:bg-[#1a1a1a]">
-                    <Image src="/contact_icons/gmail/gmail-white.png" alt="Email" width={30} height={30} className="invert dark:invert-0" />
-                  </a>
-                  {/* LinkedIn */}
-                  <a href="https://www.linkedin.com/in/eydriannn/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-white transition-colors p-4 rounded-xl border border-[#C6C6C9] dark:border-[#333] hover:bg-neutral-100 dark:hover:bg-[#1a1a1a]">
-                    <Image src="/contact_icons/linkedin/InBug-White.png" alt="LinkedIn" width={30} height={30} className="invert dark:invert-0" />
-                  </a>
-                  {/* GitHub */}
-                  <a href="https://github.com/SenpaiAdri" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-white transition-colors p-4 rounded-xl border border-[#C6C6C9] dark:border-[#333] hover:bg-neutral-100 dark:hover:bg-[#1a1a1a]">
-                     <Image src="/contact_icons/github/github-mark-white.svg" alt="GitHub" width={30} height={30} className="invert dark:invert-0" />
-                  </a>
-                  {/* Facebook */}
-                  <a href="https://www.facebook.com/eydriannnnnn/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-white transition-colors p-4 rounded-xl border border-[#C6C6C9] dark:border-[#333] hover:bg-neutral-100 dark:hover:bg-[#1a1a1a]">
-                    <Image src="/contact_icons/facebook/Facebook_Logo_Secondary.png" alt="Facebook" width={30} height={30} className="invert dark:invert-0" />
-                  </a>
-                  {/* Instagram */}
-                  <a href="https://www.instagram.com/eydriannn/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-white transition-colors p-4 rounded-xl border border-[#C6C6C9] dark:border-[#333] hover:bg-neutral-100 dark:hover:bg-[#1a1a1a]">
-                    <Image src="/contact_icons/instagram/Instagram_Glyph_White.svg" alt="Instagram" width={30} height={30} className="invert dark:invert-0" />
-                  </a>
+                  {contact.map((contact) => (
+                    <a key={contact.contact} href={contact.href} target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-white transition-colors p-3 sm:p-4 rounded-xl border border-[#C6C6C9] dark:border-[#333] hover:bg-neutral-100 dark:hover:bg-[#1a1a1a]">
+                      <Image src={contact.icon} alt={contact.contact} width={28} height={28} className="invert dark:invert-0" />
+                    </a>
+                  ))}
                 </div>
 
                 {/* Resume Download */}
@@ -160,8 +147,10 @@ const Contact = () => {
                    <a 
                      href="/RESUME-DEGUZMAN,ADRIAN.pdf" 
                      download="RESUME-DEGUZMAN,ADRIAN.pdf"
-                     className="flex items-center gap-3 px-6 py-3 bg-[#E8E8E8] dark:bg-white dark:text-black font-bold rounded-full hover:bg-gray-300 dark:hover:bg-gray-200 transition-all hover:scale-105 active:scale-95
-                     border-[#C6C6C9] border-1"
+                     className="flex items-center gap-3 px-4 py-2 sm:px-6 sm:py-3 bg-[#E8E8E8] font-bold rounded-full hover:bg-gray-300 transition-all hover:scale-105 active:scale-95
+                     border-[#C6C6C9] border-1
+                     dark:bg-white dark:text-black dark:hover:bg-gray-200
+                     text-sm sm:text-base"
                    >
                      <Download />
                      Download CV

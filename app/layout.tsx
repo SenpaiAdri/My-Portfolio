@@ -45,8 +45,8 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-        >
-          <SmoothScroll>{children}</SmoothScroll>
+      >
+        <SmoothScroll>{children}</SmoothScroll>
         </ThemeProvider>
       </body>
     </html>

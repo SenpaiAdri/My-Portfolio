@@ -6,6 +6,7 @@ import { projectsData } from "@/app/data/project";
 import { motion } from "motion/react";
 import DomeGallery from "@/app/components/ui/dome_gallery";
 import { useTheme } from "@/app/components/theme-provider";
+import { ChevronLeft, Globe } from "lucide-react";
 
 const ProjectDetails = () => {
   const params = useParams();
@@ -89,22 +90,10 @@ const ProjectDetails = () => {
       <div className="absolute top-8 left-8 z-50">
         <button
           onClick={() => router.back()}
-          className="flex items-center gap-2 px-4 py-2 bg-neutral-100/50 dark:bg-black/50 backdrop-blur-md border border-black/20 dark:border-white/20 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+          className="group flex items-center gap-2 px-4 py-2 bg-neutral-100/50 backdrop-blur-md border border-black/20 rounded-full hover:bg-black/5 transition-all duration-300
+          dark:bg-black/50 dark:border-white/20 dark:group-hover:bg-white/10"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M19 12H5" />
-            <path d="M12 19l-7-7 7-7" />
-          </svg>
+          <ChevronLeft size={20} className="text-black dark:text-white group-hover:translate-x-[-2px] transition-transform duration-300" />
           <span>Back</span>
         </button>
       </div>
@@ -125,7 +114,7 @@ const ProjectDetails = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="mb-8 relative w-40 h-40 md:w-50 md:h-50 rounded-4xl overflow-hidden shadow-2xl bg-black/5 dark:bg-white/5 backdrop-blur-sm p-4 border border-black/10 dark:border-white/10"
+              className="mb-8 relative w-40 h-40 md:w-50 md:h-50 rounded-[40px] overflow-hidden shadow-2xl bg-black/5 dark:bg-white/5 backdrop-blur-sm p-4 border border-black/10 dark:border-white/10"
             >
               <Image
                 src={project.logo[isDark ? 1 : 0]}
@@ -201,17 +190,21 @@ const ProjectDetails = () => {
                    <p className="font-medium text-lg">{project.timeline}</p>
                 </div>
                 {/* Links */}
-                {project.link || project.github && (
+                {(project.link || project.github) && (
                   <div className="pt-4 flex flex-col gap-3">
                     {project.link && (
-                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-neutral-900 text-white dark:bg-white dark:text-black py-3 rounded-xl font-bold hover:bg-neutral-800 dark:hover:bg-gray-200 transition-colors">
-                        View Live Demo ↗
+                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-white text-black border border-neutral-200 py-3 rounded-xl font-semibold 
+                      hover:bg-neutral-100 dark:hover:bg-[#333] transition-colors
+                      dark:border-[#444] dark:bg-[#222] dark:text-white">
+                        <Globe size={20} className="mr-2" />
+                        View Live Demo
                       </a>
                     )}
                     {project.github && (
-                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-white text-black dark:bg-[#222] dark:text-white border border-neutral-200 dark:border-[#444] py-3 rounded-xl font-bold hover:bg-neutral-100 dark:hover:bg-[#333] transition-colors">
-                        <Image src="/contact_icons/github/github-mark-white.svg" alt="GitHub" width={20} height={20} className="mr-2" />
-                        GitHub Repo ↗
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-white text-black border border-neutral-200 py-3 rounded-xl font-semibold 
+                      hover:bg-neutral-100 dark:hover:bg-[#333] transition-colors
+                      dark:border-[#444] dark:bg-[#222] dark:text-white">                        <Image src= {isDark ? "/contact_icons/github/github-mark-white.svg" : "/contact_icons/github/github-mark.svg"} alt="GitHub" width={20} height={20} className="mr-2" />
+                        GitHub Repo
                       </a>
                     )}
                   </div>

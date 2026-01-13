@@ -26,10 +26,11 @@ const Hero = () => {
   return (
     <div
       ref={containerRef}
-      className="bg-white dark:bg-black relative w-full min-h-screen pt-10 pb-0 px-5 flex flex-col justify-between overflow-hidden
+      className="bg-gradient-to-b from-[#C6C6C9] to-white dark:bg-gradient-to-b relative w-full min-h-screen pt-10 pb-0 px-5 flex flex-col justify-between overflow-hidden
       md:px-30
       lg:pb-0 lg:pt-0 lg:px-0
-      xl:pb-0 xl:pt-0 xl:px-0"
+      xl:pb-0 xl:pt-0 xl:px-0
+      dark:from-[#131316] dark:to-black"
     >
       {/* Meteors */}
       <Meteors number={80} />

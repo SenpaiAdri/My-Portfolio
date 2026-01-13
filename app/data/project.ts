@@ -62,7 +62,8 @@ export const projectsData: Project[] = [
     logo: ["/project_logo/ai_blogpost_logo.svg", "/project_logo/ai_blogpost_logo_dark.svg"],
     color: "#ff0000", // red-500
     align: "left",
-    link: "",
+    link: "https://ai-blogpost.vercel.app/",
+    github: "https://github.com/SenpaiAdri/AI-Blogpost",
     images: [
       "/ai_blogpost_screenshots/ai_blogpost_home_page.png",
       "/ai_blogpost_screenshots/ai_blogpost_full_blog.png",

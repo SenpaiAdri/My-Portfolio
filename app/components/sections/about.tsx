@@ -46,7 +46,7 @@ const About = () => {
             </p>
           </motion.div>
 
-          {/* Decorative / Image Placeholder */}
+          {/* Image */}
           <motion.div
             className="w-full md:w-1/3 flex justify-center"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -54,9 +54,7 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ amount: 0.2 }}
           >
-             <div className="relative w-64 h-64 md:w-90 md:h-100 rounded-full border-2 border-neutral-200 dark:border-white flex items-center justify-center bg-neutral-100 dark:bg-[#111] overflow-hidden">
-                {/* You can replace this with an actual image later */}
-                {/* <span className="text-gray-600 text-6xl select-none">ADG</span> */}
+             <div className="relative w-64 h-64 md:w-90 md:h-100 rounded-full border-2 border-[#696972] dark:border-[#C6C6C9] flex items-center justify-center bg-neutral-100 dark:bg-[#111] overflow-hidden">
                 <Image src="/profile_picture.png" width={320} height={320} alt="About" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-black/5 dark:via-white/5 to-transparent opacity-50" />
              </div>

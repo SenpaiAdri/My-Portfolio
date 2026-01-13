@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "@/app/components/theme-provider";
+import { ChevronRight } from "lucide-react";
 
 export const ProjectCard = ({
   project,
@@ -67,17 +68,20 @@ export const ProjectCard = ({
                 "--hover-bg": project.color,
               } as React.CSSProperties
             }
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.9 }}
-            className="w-fit py-2 px-5 dark:bg-[#26262C] bg-[#E8E8E8] rounded-full backdrop-blur-xs text-black dark:text-white mt-3 mx-auto flex items-center justify-center transition-colors duration-300
-            md:h-10 cursor-pointer group hover:bg-[var(--hover-bg)]"
+            className="w-fit py-2 px-5 group bg-[#E8E8E8] rounded-full backdrop-blur-xs text-black mt-3 mx-auto flex items-center justify-center gap-1 
+            transition-colors duration-300
+            md:h-10 cursor-pointer hover:bg-[var(--hover-bg)]
+            dark:bg-[#131316] dark:text-white"
           >
             <h1
-              className="group-hover:text-white transition-colors duration-300 text-center text-xs font-bold 
-            md:text-base "
+              className="text-center text-xs font-semibold 
+            md:text-base group-hover:text-white transition-colors duration-300"
             >
               {project.slug ? "Learn More" : "Coming Soon"}
             </h1>
+            <ChevronRight size={16} className="group-hover:text-white transition-all duration-300 group-hover:translate-x-1" />
           </motion.div>
         </Link>
       </div>
