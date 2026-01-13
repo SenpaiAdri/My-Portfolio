@@ -3,8 +3,8 @@ import { Project } from "@/app/data/project";
 import { motion, MotionValue } from "motion/react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-
 import Link from "next/link";
+import { useTheme } from "@/app/components/theme-provider";
 
 export const ProjectCard = ({
   project,
@@ -15,6 +15,8 @@ export const ProjectCard = ({
   x: MotionValue<number>;
   opacity: MotionValue<number>;
 }) => {
+  const { isDark } = useTheme();
+
   return (
     // Main Project Card Container
     <motion.div
@@ -33,7 +35,7 @@ export const ProjectCard = ({
       >
         {project.logo && (
           <Image
-            src={project.logo}
+            src={project.logo[isDark ? 1 : 0]}
             alt={`${project.title} logo`}
             fill
             className="object-contain"

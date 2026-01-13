@@ -2,16 +2,11 @@
 
 import * as React from "react";
 import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
+import { useTheme } from "@/app/components/theme-provider";
 import { cn } from "@/lib/utils";
 
 export function ThemeToggle({ className }: { className?: string }) {
-  const { setTheme, resolvedTheme } = useTheme();
-  const [mounted, setMounted] = React.useState(false);
-
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
+  const { setTheme, resolvedTheme, mounted } = useTheme();
 
   const toggleTheme = React.useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -49,7 +44,7 @@ export function ThemeToggle({ className }: { className?: string }) {
             clipPath: clipPath,
           },
           {
-            duration: 1000,
+            duration: 500,
             easing: "ease-in-out",
             pseudoElement: "::view-transition-new(root)",
           }

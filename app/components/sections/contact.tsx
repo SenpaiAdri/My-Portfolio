@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from "motion/react";
 import Image from "next/image";
+import { Download } from "lucide-react";
 
 const Contact = () => {
   const form = useRef<HTMLFormElement>(null);
@@ -105,7 +106,8 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-2 bg-[#E8E8E8] text-black dark:bg-white dark:text-black font-bold py-4 px-8 rounded-xl hover:bg-gray-300 dark:hover:bg-gray-300 hover:scale-101 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed
+                className="mt-2 bg-white text-black font-bold py-4 px-8 rounded-xl hover:bg-gray-300 hover:scale-101 transition-all 
+                active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed
                 border-[#C6C6C9] border-1"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
@@ -161,11 +163,7 @@ const Contact = () => {
                      className="flex items-center gap-3 px-6 py-3 bg-[#E8E8E8] dark:bg-white dark:text-black font-bold rounded-full hover:bg-gray-300 dark:hover:bg-gray-200 transition-all hover:scale-105 active:scale-95
                      border-[#C6C6C9] border-1"
                    >
-                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                        <polyline points="7 10 12 15 17 10"/>
-                        <line x1="12" y1="15" x2="12" y2="3"/>
-                     </svg>
+                     <Download />
                      Download CV
                    </a>
                 </div>

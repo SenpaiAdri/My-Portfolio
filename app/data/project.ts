@@ -7,7 +7,7 @@ export interface Project {
   techStack?: string[];
   timeline: string;
   imageColor: string;
-  logo?: string;
+  logo: string[];
   color: string;
   align: "left" | "right";
   link?: string;
@@ -27,7 +27,7 @@ export const projectsData: Project[] = [
     techStack: ["Flutter", "Dart", "Supabase", "PostgreSQL", "Google Maps API", "Google Cloud Platform"],
     timeline: "2024 - 2025",
     imageColor: "bg-red-500",
-    logo: "/project_logo/pasada_driver_logo.svg",
+    logo: ["/project_logo/pasada_driver_logo.svg", "/project_logo/pasada_driver_logo_dark.svg"],
     color: "#00CC58", // green
     align: "right",
     images: [
@@ -59,7 +59,7 @@ export const projectsData: Project[] = [
     techStack: ["Next.js", "TypeScript", "Google Gemini API", "Tailwind CSS"],
     timeline: "2025- Present",
     imageColor: "bg-red-500",
-    logo: "/project_logo/ai_blogpost_logo.svg",
+    logo: ["/project_logo/ai_blogpost_logo.svg", "/project_logo/ai_blogpost_logo_dark.svg"],
     color: "#ff0000", // red-500
     align: "left",
     link: "",

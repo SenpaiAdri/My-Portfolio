@@ -5,13 +5,13 @@ import { useState, useEffect } from "react";
 import { projectsData } from "@/app/data/project";
 import { motion } from "motion/react";
 import DomeGallery from "@/app/components/ui/dome_gallery";
-import { useTheme } from "next-themes";
+import { useTheme } from "@/app/components/theme-provider";
 
 const ProjectDetails = () => {
   const params = useParams();
   const router = useRouter();
   const { slug } = params;
-  const { resolvedTheme } = useTheme();
+  const { isDark } = useTheme();
 
   const [galleryConfig, setGalleryConfig] = useState({
     fit: 0.1,
@@ -128,7 +128,7 @@ const ProjectDetails = () => {
               className="mb-8 relative w-40 h-40 md:w-50 md:h-50 rounded-4xl overflow-hidden shadow-2xl bg-black/5 dark:bg-white/5 backdrop-blur-sm p-4 border border-black/10 dark:border-white/10"
             >
               <Image
-                src={project.logo}
+                src={project.logo[isDark ? 1 : 0]}
                 alt={`${project.title} logo`}
                 fill
                 className="object-contain p-2"
@@ -237,7 +237,7 @@ const ProjectDetails = () => {
             segments={galleryConfig.segments}
             padFactor={galleryConfig.padFactor}
             grayscale={false}
-            overlayBlurColor={resolvedTheme === "light" ? "#ffffff" : "#0a0a0a"}
+            overlayBlurColor={!isDark ? "#ffffff" : "#0a0a0a"}
             openedImageHeight="fit-content"
             imageBorderRadius="20px"
             fitBasis="height"
@@ -245,31 +245,6 @@ const ProjectDetails = () => {
           </div>
         </div>
         )}
-
-        {/* {project.images && project.images.length > 0 && (
-          <div className="space-y-10 px-3 sm:px-10">
-            <h2 className="text-3xl font-bold text-center">Project Gallery</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {project.images.map((img, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="relative group aspect-[9/16] rounded-3xl overflow-hidden border border-[#121212] cursor-pointer"
-                >
-                  <Image
-                    src={img}
-                    alt={`${project.title} screenshot ${index + 1}`}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        )} */}
       </div>
     </div>
   );
