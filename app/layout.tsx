@@ -13,17 +13,60 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Eydriannn",
+  metadataBase: new URL("https://eydriannn.vercel.app"),
+  title: {
+    default: "Eydriannn",
+    template: "%s | Eydriannn",
+  },
   description: "Personal website of Adrian",
+  keywords: [
+    "Software Engineer",
+    "Web Developer",
+    "React",
+    "Next.js",
+    "Portfolio",
+    "Adrian",
+    "Eydriannn",
+    "Portfolio",
+  ],
+  authors: [{ name: "Adrian" }],
+  creator: "Adrian",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/my_logo_light.svg",
+    apple: "/my_logo_light.svg",
   },
   openGraph: {
     title: "Eydriannn",
     description: "Personal website of Adrian",
+    url: "https://eydriannn.vercel.app",
+    siteName: "Eydriannn",
     images: [
-      { url: "/favicon.ico" },
+      {
+        url: "/my_logo_light.svg",
+        width: 800,
+        height: 600,
+        alt: "Eydriannn Portfolio Logo",
+      },
     ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Eydriannn",
+    description: "Personal website of Adrian",
+    images: ["/my_logo_light.svg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
