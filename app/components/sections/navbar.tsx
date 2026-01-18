@@ -7,8 +7,9 @@ import RollText from "@/app/components/ui/roll-text";
 import { HandleScroll } from "../handle-scroll";
 import { ThemeToggle } from "@/app/components/theme-toggle";
 import { cn } from "@/lib/utils";
+import { TransitionLink } from "../ui/transition-link";
 
-const MotionLink = motion.create(Link);
+const MotionLink = motion.create(TransitionLink);
 
 const Navbar = () => {
   const NavBarButtons =
@@ -29,7 +30,6 @@ const Navbar = () => {
           <MotionLink
             key={item.href}
             href={item.href}
-            onClick={HandleScroll(item.href)}
             className={NavBarButtons}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}

@@ -3,9 +3,9 @@ import { Project } from "@/app/data/project";
 import { motion, MotionValue } from "motion/react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import Link from "next/link";
 import { useTheme } from "@/app/components/theme-provider";
 import { ChevronRight } from "lucide-react";
+import { TransitionLink } from "./transition-link";
 
 export const ProjectCard = ({
   project,
@@ -61,7 +61,7 @@ export const ProjectCard = ({
         </p>
 
         {/* Learn More Button */}
-        <Link href={project.slug ? `/projects/${project.slug}` : "#"}>
+        <TransitionLink href={project.slug ? `/projects/${project.slug}` : "#"}>
           <motion.div
             style={
               {
@@ -83,7 +83,7 @@ export const ProjectCard = ({
             </h1>
             <ChevronRight size={16} className="group-hover:text-white transition-all duration-300 group-hover:translate-x-1" />
           </motion.div>
-        </Link>
+        </TransitionLink>
       </div>
     </motion.div>
   );

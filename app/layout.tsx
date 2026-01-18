@@ -71,6 +71,7 @@ export const metadata: Metadata = {
 
 import SmoothScroll from "./components/smooth-scroll";
 import { ThemeProvider } from "./components/theme-provider";
+import PageTransition from "./components/page-transition";
 
 export default function RootLayout({
   children,
@@ -87,8 +88,10 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-      >
-        <SmoothScroll>{children}</SmoothScroll>
+        >
+          <SmoothScroll>
+            <PageTransition>{children}</PageTransition>
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>

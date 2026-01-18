@@ -7,12 +7,20 @@ import { motion } from "motion/react";
 import DomeGallery from "@/app/components/ui/dome_gallery";
 import { useTheme } from "@/app/components/theme-provider";
 import { ChevronLeft, Globe } from "lucide-react";
+import { useTransition } from "@/app/components/page-transition";
 
 const ProjectDetails = () => {
   const params = useParams();
   const router = useRouter();
   const { slug } = params;
   const { isDark } = useTheme();
+  const { triggerTransition } = useTransition();
+
+  const handleBack = () => {
+    triggerTransition(() => {
+      router.back();
+    });
+  };
 
   const [galleryConfig, setGalleryConfig] = useState({
     fit: 0.1,
@@ -75,7 +83,7 @@ const ProjectDetails = () => {
       <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center">
         <h1 className="text-4xl font-bold mb-4">Project Not Found</h1>
         <button
-          onClick={() => router.back()}
+          onClick={handleBack}
           className="px-6 py-3 bg-white text-black rounded-full font-bold hover:bg-gray-200 transition-colors"
         >
           Go Back
@@ -89,7 +97,7 @@ const ProjectDetails = () => {
       {/* Back Button */}
       <div className="absolute top-8 left-8 z-50">
         <button
-          onClick={() => router.back()}
+          onClick={handleBack}
           className="group flex items-center gap-2 px-4 py-2 bg-neutral-100/50 backdrop-blur-md border border-black/20 rounded-full hover:bg-black/5 transition-all duration-300
           dark:bg-black/50 dark:border-white/20 dark:group-hover:bg-white/10"
         >
