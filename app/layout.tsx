@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   authors: [{ name: "Adrian" }],
   creator: "Adrian",
   icons: {
-    icon: "/my_logo_light.png",
-    apple: "/my_logo_light.png",
+    icon: "/mylogo_site_icon.png",
+    apple: "/mylogo_site_icon.png",
   },
   openGraph: {
     title: "Eydriannn",
