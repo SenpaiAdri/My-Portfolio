@@ -117,11 +117,12 @@ const ProjectDetails = () => {
         </div>
         
         <div className="flex flex-col items-center text-center px-5 max-w-4xl z-10 mt-20">
+          {/* Logo */}
           {project.logo && (
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
+              initial={{ opacity: 0, scale: 0.9, y: -40 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 1.2 , delay: 0.6, ease: "easeOut" }}
               className="mb-8 relative w-40 h-40 md:w-50 md:h-50 rounded-[40px] overflow-hidden shadow-2xl bg-black/5 dark:bg-white/5 backdrop-blur-sm p-4 border border-black/10 dark:border-white/10"
             >
               <Image
@@ -132,20 +133,20 @@ const ProjectDetails = () => {
               />
             </motion.div>
           )}
-          
+          {/* Title */}
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
             className="text-4xl md:text-6xl font-bold mb-6"
           >
             {project.title}
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
              className="text-xl md:text-2xl text-neutral-600 dark:text-gray-300 max-w-2xl"
           >
             {project.description}
@@ -154,16 +155,16 @@ const ProjectDetails = () => {
           {/* Tech Stack Pills */}
           {project.techStack && (
              <motion.div 
-               initial={{ opacity: 0, y: 20 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ duration: 0.5, delay: 0.3 }}
                className="flex flex-wrap gap-3 justify-center mt-8"
              >
-               {project.techStack.map((tech) => (
-                 <span key={tech} className="px-5 py-2 rounded-full bg-black/5 dark:bg-white/10 border border-black/5 dark:border-white/10 text-sm font-medium backdrop-blur-sm
+               {project.techStack.map((tech, i) => (
+                 <motion.span key={tech} initial={{ opacity: 0, y: 40 }}
+                 animate={{ opacity: 1, y: 0 }}
+                 transition={{ duration: 1, delay: 0.6 + (i * 0.1), ease: "easeOut" }} 
+                 className="px-5 py-2 rounded-full bg-black/5 dark:bg-white/10 border border-black/5 dark:border-white/10 text-sm font-medium backdrop-blur-sm
                  hover:bg-neutral-200 dark:hover:bg-gray-500 transition-colors duration-300">
                    {tech}
-                 </span>
+                 </motion.span>
                ))}
              </motion.div>
           )}
@@ -174,17 +175,27 @@ const ProjectDetails = () => {
       <div className="max-w-7xl mx-auto py-20 flex flex-col gap-20">
         {/* Overview */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-3 gap-10 px-6 sm:px-10"
         >
-          <div className="md:col-span-2 space-y-6">
-            <h2 className="text-3xl font-bold border-l-4 border-[var(--project-color)] pl-4" style={{ borderColor: project.color }}>Overview</h2>
-            <p className="text-neutral-600 dark:text-gray-300 text-lg leading-relaxed">
+          <motion.div className="md:col-span-2 space-y-6">
+            <motion.h2 
+            initial={{ opacity: 0, x: -60 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.6, ease: "easeOut" }} 
+            className="text-3xl font-bold border-l-4 border-[var(--project-color)] pl-4" 
+            style={{ borderColor: project.color }}>
+              Overview
+            </motion.h2>
+            <motion.p initial={{ opacity: 0, x: -80 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.8, ease: "easeOut" }} className="text-neutral-600 dark:text-gray-300 text-lg leading-relaxed">
               {project.longDescription || project.description}
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
           
           <div className="space-y-6">
              <h2 className="text-2xl font-bold">Project Info</h2>

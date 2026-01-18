@@ -4,7 +4,7 @@ import { motion, MotionValue } from "motion/react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useTheme } from "@/app/components/theme-provider";
-import { ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import { TransitionLink } from "./transition-link";
 
 export const ProjectCard = ({
@@ -81,7 +81,16 @@ export const ProjectCard = ({
             >
               {project.slug ? "Learn More" : "Coming Soon"}
             </h1>
-            <ChevronRight size={16} className="group-hover:text-white transition-all duration-300 group-hover:translate-x-1" />
+            <div className="relative w-4 h-4 flex items-center justify-center">
+              <ChevronRight
+                size={16}
+                className="absolute transition-all duration-300 group-hover:opacity-0 group-hover:translate-x-1 group-hover:text-white"
+              />
+              <ArrowRight
+                size={16}
+                className="absolute opacity-0 -translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1 group-hover:text-white"
+              />
+            </div>
           </motion.div>
         </TransitionLink>
       </div>
