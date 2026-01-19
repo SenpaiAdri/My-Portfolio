@@ -38,7 +38,7 @@ const Hero = () => {
       <motion.div style={{ x: xTop, opacity , y:xTop}}>
         {/* Top Right Content Container */}
         <div
-          className="flex flex-col items-center justify-center gap-5 px-4 mt-20
+          className="flex flex-col items-center justify-center gap-5 px-4 mt-15
           md:mt-20
           lg:flex-row lg:items-start lg:justify-end lg:gap-10 lg:px-10 lg:mt-30
           xl:flex-row xl:items-start xl:justify-end xl:gap-10 xl:px-10"

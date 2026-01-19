@@ -73,7 +73,7 @@ export const ProjectCard = ({
             className="w-fit py-2 px-5 group bg-[#E8E8E8] rounded-full backdrop-blur-xs text-black mt-3 mx-auto flex items-center justify-center gap-1 
             transition-colors duration-300
             md:h-10 cursor-pointer hover:bg-[var(--hover-bg)]
-            dark:bg-[#131316] dark:text-white"
+            dark:bg-white dark:text-black"
           >
             <h1
               className="text-center text-xs font-semibold 
