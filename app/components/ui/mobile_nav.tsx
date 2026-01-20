@@ -48,7 +48,7 @@ export const MobileNav = ({ isSidebarOpen, setIsSidebarOpen }: { isSidebarOpen: 
                 ))}
               </nav>
 
-              <ThemeToggle className="w-auto justify-center px-0 my-20" />
+              <ThemeToggle className="w-10 h-10 self-center justify-center px-0 my-20" />
             </div>
           </motion.div>
         </>
