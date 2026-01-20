@@ -62,17 +62,31 @@ export function ThemeToggle({ className }: { className?: string }) {
     );
   }
 
+  const isDark = resolvedTheme === "dark";
+
   return (
     <button
       onClick={toggleTheme}
       className={cn(
-        "rounded-full p-2 hover:bg-black/5 dark:hover:bg-white/5 transition-colors relative",
+        "group relative overflow-hidden rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors",
         className
       )}
       aria-label="Toggle theme"
     >
-      <Sun className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 text-neutral-800 dark:text-neutral-200" />
-      <Moon className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 text-neutral-800 dark:text-neutral-200" />
+      <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-out group-hover:-translate-y-full">
+        {isDark ? (
+          <Moon className="h-[1.2rem] w-[1.2rem] text-neutral-800 dark:text-neutral-200" />
+        ) : (
+          <Sun className="h-[1.2rem] w-[1.2rem] text-neutral-800 dark:text-neutral-200" />
+        )}
+      </span>
+      <span className="absolute inset-0 flex items-center justify-center translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0">
+        {isDark ? (
+          <Sun className="h-[1.2rem] w-[1.2rem] text-neutral-800 dark:text-neutral-200" />
+        ) : (
+          <Moon className="h-[1.2rem] w-[1.2rem] text-neutral-800 dark:text-neutral-200" />
+        )}
+      </span>
     </button>
   );
 }

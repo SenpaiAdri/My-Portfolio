@@ -21,6 +21,18 @@ body {
   /* Removed CSS transition to let View Transitions handle it smoothly */
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html,
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 /* View Transitions Config */
 ::view-transition-old(root),
 ::view-transition-new(root) {

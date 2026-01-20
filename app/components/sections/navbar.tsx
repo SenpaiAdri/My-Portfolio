@@ -66,9 +66,10 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.8, ease: "easeOut", delay: 0.6 }}
           >
-            <ThemeToggle className={cn(" h-8 w-auto px-3 text-xs md:w-25 md:h-10 group flex whitespace-nowrap backdrop-blur-md rounded-full border-1 border-[#C6C6C9] transition-colors items-center justify-center hover:bg-[#393A41]/10 duration-200",
-              "px-0 w-8 md:w-10 dark:hover:bg-[#26262C]/50 dark:border-[#6A6B70]",
-              "md:text-base")} />
+            <ThemeToggle className=" h-8 px-0 w-8 text-xs group flex whitespace-nowrap backdrop-blur-md rounded-full border-1 border-[#C6C6C9] transition-colors items-center justify-center hover:bg-[#393A41]/10 duration-200
+            dark:hover:bg-[#26262C]/50 dark:border-[#6A6B70]
+              md:text-base md:h-10 md:w-10"
+              />
           </motion.div>
         </div>
       </div>

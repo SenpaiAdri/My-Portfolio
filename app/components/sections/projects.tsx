@@ -1,6 +1,13 @@
 "use client";
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform, MotionValue } from "motion/react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  MotionValue,
+  useMotionTemplate,
+  MotionStyle,
+} from "motion/react";
 import { cn } from "@/lib/utils";
 import { Meteors } from "../ui/meteors";
 import { Marquee } from "../ui/marquee";
@@ -20,6 +27,12 @@ const Projects = () => {
     offset: ["start start", "end end"],
   });
 
+  const clipPath = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["inset(0 100% 0 0)", "inset(0 0% 0 0)"]
+  );
+
   const titleOpacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
@@ -31,6 +44,23 @@ const Projects = () => {
     >
       <Meteors number={200} />
       <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden">
+        <motion.div
+          id="scroll"
+          style={{
+            clipPath,
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: 5,
+            width: "100%",
+            background: "linear-gradient(to right, #C6C6C9  , #88CB0C, #00CC58, #C6C6C9 ,#FF0000, red, #C6C6C9)",
+            dark: {
+              background: "linear-gradient(to right, #131316, #88CB0C, #00CC58, #131316 ,#FF0000, red, #131316)",
+            },
+            zIndex: 50,
+          } as MotionStyle}
+        />
         {/* Title */}
         <motion.div
           style={{ opacity: titleOpacity }}
@@ -100,53 +130,53 @@ const Projects = () => {
                   >
                     {project.images
                       ? project.images.map((img, j) => (
-                          <div
-                            key={j}
-                            className="h-full w-48 relative mx-4 rounded-lg overflow-hidden opacity-50"
-                          >
-                            <Image
-                              src={img}
-                              alt={`${project.title} screenshot ${j + 1}`}
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
-                        ))
-                      : [...Array(10)].map((_, j) => (
-                          <div
-                            key={j}
-                            className={cn(
-                              "h-full w-48 rounded-lg opacity-50 mx-4",
-                              project.imageColor
-                            )}
+                        <div
+                          key={j}
+                          className="h-full w-48 relative mx-4 rounded-lg overflow-hidden opacity-50"
+                        >
+                          <Image
+                            src={img}
+                            alt={`${project.title} screenshot ${j + 1}`}
+                            fill
+                            className="object-cover"
                           />
-                        ))}
+                        </div>
+                      ))
+                      : [...Array(10)].map((_, j) => (
+                        <div
+                          key={j}
+                          className={cn(
+                            "h-full w-48 rounded-lg opacity-50 mx-4",
+                            project.imageColor
+                          )}
+                        />
+                      ))}
                   </Marquee>
                   <div className="h-5 rotate-170" />
                   <Marquee className="[--duration:30s] [--gap:2rem] flex-1 opacity-40 rotate-350 [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]">
                     {project.images
                       ? project.images.map((img, j) => (
-                          <div
-                            key={j}
-                            className="h-full w-48 relative mx-4 rounded-lg overflow-hidden opacity-50"
-                          >
-                            <Image
-                              src={img}
-                              alt={`${project.title} screenshot ${j + 1}`}
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
-                        ))
-                      : [...Array(10)].map((_, j) => (
-                          <div
-                            key={j}
-                            className={cn(
-                              "h-full w-48 rounded-lg opacity-50 mx-4",
-                              project.imageColor
-                            )}
+                        <div
+                          key={j}
+                          className="h-full w-48 relative mx-4 rounded-lg overflow-hidden opacity-50"
+                        >
+                          <Image
+                            src={img}
+                            alt={`${project.title} screenshot ${j + 1}`}
+                            fill
+                            className="object-cover"
                           />
-                        ))}
+                        </div>
+                      ))
+                      : [...Array(10)].map((_, j) => (
+                        <div
+                          key={j}
+                          className={cn(
+                            "h-full w-48 rounded-lg opacity-50 mx-4",
+                            project.imageColor
+                          )}
+                        />
+                      ))}
                   </Marquee>
                   <div className="h-5 rotate-170" />
                   <Marquee
@@ -155,27 +185,27 @@ const Projects = () => {
                   >
                     {project.images
                       ? [...project.images].reverse().map((img, j) => (
-                          <div
-                            key={j}
-                            className="h-full w-48 relative mx-4 rounded-lg overflow-hidden opacity-50"
-                          >
-                            <Image
-                              src={img}
-                              alt={`${project.title} screenshot ${j + 1}`}
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
-                        ))
-                      : [...Array(10)].map((_, j) => (
-                          <div
-                            key={j}
-                            className={cn(
-                              "h-full w-48 rounded-lg opacity-50 mx-4",
-                              project.imageColor
-                            )}
+                        <div
+                          key={j}
+                          className="h-full w-48 relative mx-4 rounded-lg overflow-hidden opacity-50"
+                        >
+                          <Image
+                            src={img}
+                            alt={`${project.title} screenshot ${j + 1}`}
+                            fill
+                            className="object-cover"
                           />
-                        ))}
+                        </div>
+                      ))
+                      : [...Array(10)].map((_, j) => (
+                        <div
+                          key={j}
+                          className={cn(
+                            "h-full w-48 rounded-lg opacity-50 mx-4",
+                            project.imageColor
+                          )}
+                        />
+                      ))}
                   </Marquee>
                 </motion.div>
 
