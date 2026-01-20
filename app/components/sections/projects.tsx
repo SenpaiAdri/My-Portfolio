@@ -54,12 +54,9 @@ const Projects = () => {
             right: 0,
             height: 5,
             width: "100%",
-            background: "linear-gradient(to right, #C6C6C9  , #88CB0C, #00CC58, #C6C6C9 ,#FF0000, red, #C6C6C9)",
-            dark: {
-              background: "linear-gradient(to right, #131316, #88CB0C, #00CC58, #131316 ,#FF0000, red, #131316)",
-            },
+            background: "var(--project-progress-gradient)",
             zIndex: 50,
-          } as MotionStyle}
+          }}
         />
         {/* Title */}
         <motion.div
