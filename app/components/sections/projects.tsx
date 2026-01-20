@@ -14,6 +14,7 @@ import { Marquee } from "../ui/marquee";
 import Image from "next/image";
 import { projectsData } from "@/app/data/project";
 import { ProjectCard } from "../ui/project_card";
+import { ProjectScrollProgress } from "../ui/progject_scroll_progress";
 
 const Projects = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -27,12 +28,6 @@ const Projects = () => {
     offset: ["start start", "end end"],
   });
 
-  const clipPath = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ["inset(0 100% 0 0)", "inset(0 0% 0 0)"]
-  );
-
   const titleOpacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
@@ -44,20 +39,8 @@ const Projects = () => {
     >
       <Meteors number={200} />
       <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden">
-        <motion.div
-          id="scroll"
-          style={{
-            clipPath,
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            height: 5,
-            width: "100%",
-            background: "var(--project-progress-gradient)",
-            zIndex: 50,
-          }}
-        />
+        <ProjectScrollProgress scrollYProgress={scrollYProgress} />
+
         {/* Title */}
         <motion.div
           style={{ opacity: titleOpacity }}
