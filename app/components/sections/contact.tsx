@@ -25,13 +25,13 @@ const Contact = () => {
         .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
         .then(
           (result) => {
-            console.log(result.text);
+            console.log('Email sent successfully:', result.text);
             setStatus("success");
             setIsSubmitting(false);
             if (form.current) form.current.reset();
           },
           (error) => {
-            console.log(error.text);
+            console.log('Error sending email:', error.text);
             setStatus("error");
             setIsSubmitting(false);
           }
@@ -50,7 +50,7 @@ const Contact = () => {
           viewport={{ once: false }}
           className="text-center mb-16"
         >
-          
+
           <h1 className="text-3xl font-bold md:text-5xl mb-6">
             Get in touch
           </h1>
@@ -95,7 +95,7 @@ const Contact = () => {
               </div>
 
               <div className="flex flex-col gap-2">
-                 <label className="text-sm text-neutral-600 dark:text-gray-400 font-medium ml-1">Message</label>
+                <label className="text-sm text-neutral-600 dark:text-gray-400 font-medium ml-1">Message</label>
                 <textarea
                   name="message"
                   required
@@ -126,40 +126,40 @@ const Contact = () => {
 
           {/* Contact Info */}
           <motion.div
-             initial={{ opacity: 0, x: 50 }}
-             whileInView={{ opacity: 1, x: 0 }}
-             transition={{ duration: 0.8, delay: 0.2 }}
-             viewport={{ once: true }}
-             className="flex flex-col gap-8"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="flex flex-col gap-8"
           >
-             <div className="space-y-6">
-                <h2 className="text-xl sm:text-2xl font-semibold text-neutral-700 dark:text-gray-200 text-center lg:text-left">Or connect with me</h2>
-                 <div className="flex flex-row flex-wrap justify-center lg:justify-start gap-4">
-                  {contact.map((contact) => (
-                    <a key={contact.contact} href={contact.href} target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-white transition-colors p-3 sm:p-4 rounded-xl border border-[#C6C6C9] dark:border-[#333] hover:bg-neutral-100 dark:hover:bg-[#1a1a1a]">
-                      <Image src={contact.icon} alt={contact.contact} width={28} height={28} className="invert dark:invert-0" />
-                    </a>
-                  ))}
-                </div>
+            <div className="space-y-6">
+              <h2 className="text-xl sm:text-2xl font-semibold text-neutral-700 dark:text-gray-200 text-center lg:text-left">Or connect with me</h2>
+              <div className="flex flex-row flex-wrap justify-center lg:justify-start gap-4">
+                {contact.map((contact) => (
+                  <a key={contact.contact} href={contact.href} target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-white transition-colors p-3 sm:p-4 rounded-xl border border-[#C6C6C9] dark:border-[#333] hover:bg-neutral-100 dark:hover:bg-[#1a1a1a]">
+                    <Image src={contact.icon} alt={contact.contact} width={28} height={28} className="invert dark:invert-0" />
+                  </a>
+                ))}
+              </div>
 
-                {/* Resume Download */}
-                <div className="pt-4 flex justify-center lg:justify-start">
-                   <a 
-                     href="/RESUME-DEGUZMAN,ADRIAN.pdf" 
-                     download="RESUME-DEGUZMAN,ADRIAN.pdf"
-                     className="flex items-center gap-3 px-4 py-2 sm:px-6 sm:py-3 bg-[#E8E8E8] font-bold rounded-full hover:bg-gray-300 transition-all hover:scale-105 active:scale-95
+              {/* Resume Download */}
+              <div className="pt-4 flex justify-center lg:justify-start">
+                <a
+                  href="/RESUME-DEGUZMAN,ADRIAN.pdf"
+                  download="RESUME-DEGUZMAN,ADRIAN.pdf"
+                  className="flex items-center gap-3 px-4 py-2 sm:px-6 sm:py-3 bg-[#E8E8E8] font-bold rounded-full hover:bg-gray-300 transition-all hover:scale-105 active:scale-95
                      border-[#C6C6C9] border-1
                      dark:bg-white dark:text-black dark:hover:bg-gray-200
                      text-sm sm:text-base"
-                   >
-                     <Download />
-                     Download CV
-                   </a>
-                </div>
-             </div>
+                >
+                  <Download />
+                  Download CV
+                </a>
+              </div>
+            </div>
           </motion.div>
 
-          
+
         </div>
       </div>
     </div>

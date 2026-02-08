@@ -35,7 +35,7 @@ const Hero = () => {
       {/* Meteors */}
       <Meteors number={80} />
       {/* Top Right Content */}
-      <motion.div style={{ x: xTop, opacity , y:xTop}}>
+      <motion.div style={{ x: xTop, opacity, y: xTop }}>
         {/* Top Right Content Container */}
         <div
           className="flex flex-col items-center justify-center gap-5 px-4 mt-15
