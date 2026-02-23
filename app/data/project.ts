@@ -67,8 +67,18 @@ export const projectsData: Project[] = [
     images: [
       "/ai_blogpost_screenshots/ai_blogpost_home_page.png",
       "/ai_blogpost_screenshots/ai_blogpost_full_blog.png",
+      "/ai_blogpost_screenshots/ai_blogpost_about_2.png",
       "/ai_blogpost_screenshots/ai_blogpost_mobile_home.jpg",
+      "/ai_blogpost_screenshots/ai_blogpost_full_blog.png",
+      "/ai_blogpost_screenshots/ai_blogpost_about_3.png",
+      "/ai_blogpost_screenshots/ai_blogpost_home_page.png",
       "/ai_blogpost_screenshots/ai_blogpost_mobile_full_blog.jpg",
+      "/ai_blogpost_screenshots/ai_blogpost_about.png",
+      "/ai_blogpost_screenshots/ai_blogpost_full_blog.png",
+      "/ai_blogpost_screenshots/ai_blogpost_blog.png",
+      "/ai_blogpost_screenshots/ai_blogpost_mobile_full_blog.jpg",
+      "/ai_blogpost_screenshots/ai_blogpost_about.png",
+      "/ai_blogpost_screenshots/ai_blogpost_blog.png",
     ],
   },
   // {
