@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://eydriannn.vercel.app"),
+  metadataBase: new URL("https://eydriannn-v0.vercel.app"),
   title: {
     default: "Eydriannn",
     template: "%s | Eydriannn",
